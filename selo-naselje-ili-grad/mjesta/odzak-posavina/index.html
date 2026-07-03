@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odžak - Katolička Župa i Dekanat | Vatikanski Arhiv</title>
-    <!-- Google Fonts za elegantnu vatikansku tipografiju -->
+    <!-- Ispravni Google Fonts linkovi za vatikansku tipografiju -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com" rel="stylesheet">
-    <!-- FontAwesome za kršćanske i opće ikone -->
+    <!-- Ispravan FontAwesome link za ikone -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Leaflet CSS za interaktivnu mapu -->
+    <!-- Ispravan Leaflet CSS za interaktivnu mapu -->
     <link rel="stylesheet" href="https://unpkg.com" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigacija -->
+    <!-- Fiksna Navigacija -->
     <nav class="vatikan-nav">
         <div class="nav-logo">
             <i class="fa-solid fa-cross cross-icon"></i>
@@ -25,15 +27,15 @@
             <li><a href="#vrijeme-sekcija">Prognoza</a></li>
             <li><a href="#istorija">Istorija</a></li>
             <li><a href="#objekti">Crkve & Sakralni Objekti</a></li>
-            <li><a href="#mapa-sekcija">Interaktivna Mapa</a></li>
+            <li><a href="#mapa-sekcija">Mapa</a></li>
+            <li><a href="#dogadjanja">Događanja</a></li>
             <li><a href="#osobe">Važne Osobe</a></li>
-            <li><a href="#tradicija">Procesije</a></li>
             <li><a href="#groblja">Groblja</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
 
-    <!-- 1. POČETNA / HERO SEKCIJA -->
+    <!-- 1. HERO SEKCIJA -->
     <header id="pocetna" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -58,7 +60,7 @@
         </div>
     </div>
 
-    <!-- NOVO: VREMENSKA PROGNOZA (Vatikanski stil) -->
+    <!-- 2. VREMENSKA PROGNOZA -->
     <section id="vrijeme-sekcija" class="info-section light-bg">
         <div class="container">
             <div class="section-title">
@@ -66,14 +68,13 @@
                 <h2>Vremenska Prognoza za Odžak</h2>
                 <div class="gold-divider"></div>
             </div>
-            <!-- Kontejner za kartice prognoze -->
             <div id="weather-container" class="grid-container">
-                <!-- JavaScript automatski ubacuje trodnevnu prognozu ovdje -->
+                <!-- JavaScript ubacuje podatke ovdje -->
             </div>
         </div>
     </section>
 
-    <!-- 2. DUBOKA ISTORIJA -->
+    <!-- 3. DUBOKA ISTORIJA -->
     <section id="istorija" class="info-section history-bg">
         <div class="container">
             <div class="section-title">
@@ -101,7 +102,7 @@
         </div>
     </section>
 
-    <!-- 3. CRKVE I SAKRALNI OBJEKTI -->
+    <!-- 4. CRKVE I SAKRALNI OBJEKTI -->
     <section id="objekti" class="info-section light-bg">
         <div class="container">
             <div class="section-title">
@@ -110,7 +111,6 @@
                 <div class="gold-divider"></div>
             </div>
             <div class="grid-container">
-                <!-- Objekt 1 -->
                 <div class="sakralni-card pretrazivo-objekt">
                     <div class="card-img-placeholder"><i class="fa-solid fa-church"></i></div>
                     <div class="card-body">
@@ -119,7 +119,6 @@
                         <p>Centralno sakralno zdanje u Odžaku, obnovljeno nakon razaranja. Mjesto duhovnog okupljanja i ponosa odžačkih katolika.</p>
                     </div>
                 </div>
-                <!-- Objekt 2 -->
                 <div class="sakralni-card pretrazivo-objekt">
                     <div class="card-img-placeholder"><i class="fa-solid fa-cross"></i></div>
                     <div class="card-body">
@@ -132,7 +131,7 @@
         </div>
     </section>
 
-    <!-- INTERAKTIVNA MAPA -->
+    <!-- 5. INTERAKTIVNA MAPA -->
     <section id="mapa-sekcija" class="info-section dark-bg">
         <div class="container">
             <div class="section-title text-white">
@@ -144,38 +143,7 @@
         </div>
     </section>
 
-    <!-- 4. VAŽNE OSOBE -->
-    <section id="osobe" class="info-section crimson-bg">
-        <div class="container">
-            <div class="section-title text-white">
-                <i class="fa-solid fa-user-tie"></i>
-                <h2>Važne Osobe kroz Istoriju</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="grid-container">
-                <div class="person-card pretrazivo-objekt">
-                    <h3>Fra Grgo Martić</h3>
-                    <p class="person-role">Povijesni duhovni vođa i pisac</p>
-                    <p>Imao je ogroman utjecaj na kulturni i prosvjetni život katolika u cijeloj Posavini i Bosni.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. PROCESIJE I TRADICIJA -->
-    <section id="tradicija" class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-hands-praying"></i>
-                <h2>Procesije i Vjerska Tradicija</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="tradition-row">
-                <div class="tradition-text pretrazivo-objekt">
-                    <h3>Patron Župe — Glavosjek sv. Ivana Krstitelja</h3>
-                    <p>Svake godine 29. kolovoza Odžak dočekuje tisuće vjernika iz Posavine i dijaspore. Svečana procesija s kipom sv. Ivana Krstitelja i sveta misa predstavljaju vrhunac duhovne godine.</p>
-                </div>
-            </div>    <!-- 6. DRUŠTVENA, KULTURNA I VJERSKA DOGAĐANJA -->
+    <!-- 6. DRUŠTVENA I VJERSKA DOGAĐANJA -->
     <section id="dogadjanja" class="info-section light-bg">
         <div class="container">
             <div class="section-title">
@@ -183,44 +151,36 @@
                 <h2>Društvena i Vjerska Događanja</h2>
                 <div class="gold-divider"></div>
             </div>
-            
             <div class="grid-container">
-                <!-- Događaj 1 -->
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge"><i class="fa-solid fa-wheat-awn"></i> Kultura</div>
                     <h3>Posavsko Kolo & Vašar za Veliku Gospu</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Sredina kolovoza / Blagdan Velike Gospe</p>
-                    <p>Tradicionalna manifestacija koja okuplja Hrvate odžačkog kraja i dijaspore. Uz bogat smotru folklora, izvorne pjesme i narodne nošnje, tradicionalni vašar za Veliku Gospu predstavlja središnji društveni događaj ljeta.</p>
+                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Sredina kolovoza / Velika Gospa</p>
+                    <p>Tradicionalna manifestacija koja okuplja Hrvate odžačkog kraja. Uz bogatu smotru folklora i izvorne pjesme, tradicionalni vašar predstavlja središnji događaj ljeta.</p>
                 </div>
-
-                <!-- Događaj 2 -->
                 <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge crkva-badge"><i class="fa-solid fa-candle-holder"></i> Vjerski spomen</div>
+                    <div class="dogadjaj-badge crkva-badge"><i class="fa-solid fa-candle"></i> Vjerski spomen</div>
                     <h3>Svetkovina Svih Svetih & Dušni Dan</h3>
                     <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> 1. i 2. studenog</p>
-                    <p>Vrijeme duboke molitve i sjećanja na naše pokojne. Uz tradicionalni vašar, na gradskom i seoskim grobljima služe se svečane svete mise te se mole opijela za duše svih vjernih mrtvih uz paljenje svijeća.</p>
+                    <p>Vrijeme molitve i sjećanja na pokojne. Uz tradicionalni vašar, na grobljima se služe svete mise te se mole opijela za duše vjernih mrtvih uz paljenje svijeća.</p>
                 </div>
-
-                <!-- Događaj 3 -->
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge duhovni-badge"><i class="fa-solid fa-music"></i> Duhovnost</div>
                     <h3>Koncerti Duhovne Glazbe</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Tijekom godine / Advent / Patron župe</p>
-                    <p>U predivnom ambijentu župne crkve u Odžaku redovito se organiziraju koncerti duhovne glazbe, zborova i gostujućih kršćanskih izvođača, slaveći Gospodina kroz pjesmu i zajedništvo.</p>
+                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Tijekom godine</p>
+                    <p>U ambijentu župne crkve u Odžaku redovito se organiziraju koncerti duhovne glazbe i zborova, slaveći Gospodina kroz pjesmu i zajedništvo.</p>
                 </div>
-
-                <!-- Događaj 4 -->
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge moto-badge"><i class="fa-solid fa-motorcycle"></i> Zabava</div>
                     <h3>Tradicionalna Motorijada</h3>
                     <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Ljetni period</p>
-                    <p>Godišnje okupljanje ljubitelja motocikala iz cijele regije i inozemstva. Događaj uključuje tradicionalni defile kroz ulice Odžaka, moto-igre i rock koncerte na otvorenom.</p>
+                    <p>Godišnje okupljanje ljubitelja motocikala iz cijele regije. Uključuje tradicionalni defile kroz ulice Odžaka i rock koncerte.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. SPOMEN-OBILJEŽJE I POVREMENA DOMOLJUBNA DOGAĐANJA -->
+    <!-- 7. DOMOVINSKA ZAHVALNOST I HVO -->
     <section id="domovinski-rat" class="info-section crimson-bg">
         <div class="container">
             <div class="section-title text-white">
@@ -228,55 +188,8 @@
                 <h2>Domovinska Zahvalnost i Spomen</h2>
                 <div class="gold-divider"></div>
             </div>
-            
             <div class="spomen-container pretrazivo-objekt">
                 <div class="spomen-Ikona">
                     <i class="fa-solid fa-monument"></i>
                 </div>
                 <div class="spomen-tekst">
-                    <h3>Dan Osnutka HVO-a & Središnji Spomenik Braniteljima</h3>
-                    <p class="lead-text" style="text-align: left; margin: 10px 0; font-size: 1.1rem;">"Navik on živi ki zgine pošteno"</p>
-                    <p>Svake godine dostojanstveno se obilježava obljetnica osnutka Hrvatskog vijeća obrane (HVO). Središnji spomenik poginulim braniteljima u centru Odžaka mjesto je trajnog pijeteta gdje izaslanstva, udruge proizašle iz Domovinskog rata, obitelji i vjernici polažu vijence, pale svijeće i mole za duše onih koji su dali živote za slobodu posavskog naroda.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        </div>
-    </section>
-
-    <!-- 6. GROBLJA -->
-    <section id="groblja" class="info-section dark-bg">
-        <div class="container">
-            <div class="section-title text-white">
-                <i class="fa-solid fa-monument"></i>
-                <h2>Katolička Groblja</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="groblje-box pretrazivo-objekt">
-                <h3>Gradsko katoličko groblje Odžak</h3>
-                <p>Uređeno počivalište predaka s centralnim spomen-križem posvećenim svim poginulim braniteljima i žrtvama ratova kroz povijest Odžaka.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="info-section contact-section">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-address-book"></i>
-                <h2>Kontakt Župnog Ureda</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="contact-wrapper">
-                <div class="contact-info-card">
-                    <h3>Župni Ured Odžak</h3>
-                    <p><i class="fa-solid fa-map-location-dot text-gold"></i> <strong>Adresa:</strong> Titova bb, 76290 Odžak, BiH</p>
-                    <p><i class="fa-solid fa-phone text-gold"></i> <strong>Telefon:</strong> +387 (0)31 XXX-XXX</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="vatikan-footer">
-        <i class="fa-solid fa-cross footer-cross"></i>
