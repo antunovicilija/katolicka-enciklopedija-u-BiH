@@ -3,193 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odžak - Katolička Župa i Dekanat | Vatikanski Arhiv</title>
-    <!-- Ispravni Google Fonts linkovi za vatikansku tipografiju -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Ispravan FontAwesome link za ikone -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Ispravan Leaflet CSS za interaktivnu mapu -->
-    <link rel="stylesheet" href="https://unpkg.com" />
-    <link rel="stylesheet" href="style.css">
+    <title>Katolička Crkva i Svetišta u Bosni i Hercegovini</title>
+    <style>
+        :root {
+            --vatican-yellow: #FFE000;
+            --vatican-gold: #D4AF37;
+            --vatican-white: #FFFFFF;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --bg-light: #FAFAFA;
+            --border-color: #EAEAEA;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+        header {
+            background: linear-gradient(135deg, var(--vatican-white) 50%, #FFFDE6 100%);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 5px solid var(--vatican-yellow);
+            position: relative;
+        }
+        /* Vizualni sakralni simbol - Papinski / Kršćanski križ */
+        .header-symbol {
+            font-size: 3rem;
+            color: var(--vatican-gold);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        header h1 {
+            font-size: 2.6rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+        header p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        nav {
+            background-color: var(--text-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        nav a {
+            color: var(--vatican-white);
+            text-decoration: none;
+            padding: 18px 20px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        nav a:hover {
+            color: var(--vatican-yellow);
+            background-color: #333333;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .intro-box {
+            text-align: center;
+            margin-bottom: 50px;
+            background: var(--vatican-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--vatican-gold);
+        }
+        .intro-box p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 0;
+        }
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .card {
+            background: var(--vatican-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--vatican-yellow);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .card h3 {
+            color: var(--text-dark);
+            margin-top: 0;
+            font-size: 1.35rem;
+            border-bottom: 2px solid #FFFDE6;
+            padding-bottom: 8px;
+        }
+        .full-width-section {
+            background-color: var(--vatican-white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            color: var(--text-dark);
+            border-bottom: 3px solid var(--vatican-yellow);
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: inline-block;
+        }
+        .section-title-container {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        li strong {
+            color: var(--text-dark);
+        }
+        .external-links {
+            background: #FFFFE0;
+            color: var(--text-dark);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #F5EAA6;
+        }
+        .external-links h3 {
+            color: var(--text-dark);
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        .external-links ul {
+            list-style-type: disc;
+        }
+        .external-links a {
+            color: #B58900;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .external-links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--vatican-white);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 4px solid var(--vatican-yellow);
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.02);
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            nav a { padding: 12px 10px; font-size: 0.8rem; }
+            .header-symbol { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Fiksna Navigacija -->
-    <nav class="vatikan-nav">
-        <div class="nav-logo">
-            <i class="fa-solid fa-cross cross-icon"></i>
-            <span>VATIKANSKI ARHIV</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#pocetna">Početna</a></li>
-            <li><a href="#vrijeme-sekcija">Prognoza</a></li>
-            <li><a href="#istorija">Istorija</a></li>
-            <li><a href="#objekti">Crkve & Sakralni Objekti</a></li>
-            <li><a href="#mapa-sekcija">Mapa</a></li>
-            <li><a href="#dogadjanja">Događanja</a></li>
-            <li><a href="#osobe">Važne Osobe</a></li>
-            <li><a href="#groblja">Groblja</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
-
-    <!-- 1. HERO SEKCIJA -->
-    <header id="pocetna" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="vatikan-emblem">
-                <i class="fa-solid fa-key"></i>
-                <i class="fa-solid fa-key cross-key"></i>
-            </div>
-            <p class="meta-info">Dekanat: Doborski &bull; Župa: Glavosjeka sv. Ivana Krstitelja</p>
-            <h1>Odžak</h1>
-            <p class="hero-motto">"Preko križa do svjetlosti — Per crucem ad lucem"</p>
-            <div class="scroll-arrow">
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-        </div>
+    <header>
+        <!-- Simbol križa u vatikanskom stilu -->
+        <div class="header-symbol">†</div>
+        <h1>Vjera i Baština u BiH</h1>
+        <p>Povijesni pregled rane Crkve, opstojnosti katoličanstva i duhovnih središta bosanskohercegovačkih Hrvata</p>
     </header>
 
-    <!-- SEKCIJA ZA PRETRAGU -->
-    <div class="search-bar-container">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="pretraga-input" placeholder="Pretraži crkve, groblja, osobe ili istorijske događaje u Odžaku..." onkeyup="pretraziStranicu()">
+    <nav>
+        <div class="nav-container">
+            <a href="biskupije/index.html">Biskupije</a>
+            <a href="dekanati/index.html">Dekanati</a>
+            <a href="zupe-i-naselja/index.html">Župe i naselja</a>
+            <a href="svetista/index.html">Svetišta</a>
+            <a href="hodocasca/index.html">Hodočašća</a>
+            <a href="kontakt.html">Kontakt</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- 2. VREMENSKA PROGNOZA -->
-    <section id="vrijeme-sekcija" class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-cloud-sun"></i>
-                <h2>Vremenska Prognoza za Odžak</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div id="weather-container" class="grid-container">
-                <!-- JavaScript ubacuje podatke ovdje -->
-            </div>
-        </div>
-    </section>
+    <div class="container">
+        
+        <section class="intro-box">
+            <p>
+                "Na ovim kamenitim i šumovitim prostorima, katolička vjera nije tek povijesni zapis, već živo tkivo koje je preživjelo stoljeća iskušenja, oblikujući identitet, kulturu i duhovnost naroda."
+            </p>
+        </section>
 
-    <!-- 3. DUBOKA ISTORIJA -->
-    <section id="istorija" class="info-section history-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-book-bible"></i>
-                <h2>Duboka Istorija i Katolička Vjerna Tradicija</h2>
-                <div class="gold-divider"></div>
+        <!-- POVIJESNI PREGLED -->
+        <section class="grid-section">
+            <div class="card">
+                <h3>Rano kršćanstvo (Antika)</h3>
+                <p>
+                    Kršćanstvo na tlu današnje Bosne i Hercegovine korijene vuče još iz apostolskih vremena. Rimski gradovi poput <em>Delminiuma</em> (Tomislavgrad) i kasnoantičke bazilike (poput onih u Mogorjelu kod Čapljine ili u Brezi) svjedoče o ranoj organiziranoj Crkvi. Već tada, drevna Salonitanska metropolija upravljala je ovim prostorima, ostavljajući neizbrisiv trag u ranokršćanskoj arheologiji.
+                </p>
             </div>
-            <div class="history-content">
-                <p class="lead-text">Katolička vjera u Odžaku i doborskom kraju stoljećima je bila temelj opstanka naroda kroz burna povijesna previranja.</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>1593. Godina — Prvi spomeni i Dobor-grad</h3>
-                        <p>Područje današnjeg Odžaka usko je vezano uz povijest drevne utvrde Dobor, koja je bila poprište brojnih bitaka za obranu kršćanstva.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>1784. Godina — Uspostava samostalne kapelanije</h3>
-                        <p>Odžak se odvaja od stare župe Potočani i formira vlastitu duhovnu kapelaniju, što označava novi procvat katoličkog identiteta.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>1824. Godina — Podizanje prve župne crkve</h3>
-                        <p>Izgrađena je prva drvena župna crkva koja je okupila vjernike iz cijelog odžačkog kraja, unatoč teškim vremenima otomanske vlasti.</p>
-                    </div>
-                </div>
+            
+            <div class="card">
+                <h3>Srednjovjekovna Bosna i Franjevci</h3>
+                <p>
+                    U srednjem vijeku, pod vlašću bosanskih banova i kraljeva, Katolička Crkva prolazi kroz kompleksna razdoblja. Ključni trenutak događa se potkraj 13. stoljeća dolaskom <strong>franjevaca</strong>. Franjevačka provincija <em>Bosna Srebrena</em> postaje stup očuvanja vjere, pismenosti i nacionalnog identiteta, posebice nakon pada pod osmansku vlast 1463. godine, kada su samostani ostali jedina utočišta naroda.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 4. CRKVE I SAKRALNI OBJEKTI -->
-    <section id="objekti" class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-church"></i>
-                <h2>Crkve i Sakralni Objekti</h2>
-                <div class="gold-divider"></div>
+        <!-- VAŽNOST SVETIŠTA I HODOČAŠĆA -->
+        <section class="full-width-section">
+            <div class="section-title-container">
+                <h2>Značaj svetišta i tradicija hodočašća</h2>
             </div>
-            <div class="grid-container">
-                <div class="sakralni-card pretrazivo-objekt">
-                    <div class="card-img-placeholder"><i class="fa-solid fa-church"></i></div>
-                    <div class="card-body">
-                        <span class="card-tag">Župna Crkva</span>
-                        <h3>Crkva Glavosjeka sv. Ivana Krstitelja</h3>
-                        <p>Centralno sakralno zdanje u Odžaku, obnovljeno nakon razaranja. Mjesto duhovnog okupljanja i ponosa odžačkih katolika.</p>
-                    </div>
-                </div>
-                <div class="sakralni-card pretrazivo-objekt">
-                    <div class="card-img-placeholder"><i class="fa-solid fa-cross"></i></div>
-                    <div class="card-body">
-                        <span class="card-tag">Kapela</span>
-                        <h3>Zavjetna Kapelica</h3>
-                        <p>Mala sakralna građevina podignuta u znak zavjeta i molitvene zaštite župljana od svih nedaća.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p>
+                Svetišta u Bosni i Hercegovini stoljećima predstavljaju žive oaze molitve, utjehe i povijesnog kontinuiteta. Ona nisu samo arhitektonski spomenici, već mjesta hodočašća na kojima se susreću prošlost i sadašnjost. Hodočašćenje pješice, često kroz nepristupačne planinske predjele, tradicija je koja duboko definira lokalnu pučku pobožnost.
+            </p>
+            <p><strong>Tri ključna duhovna stupa:</strong></p>
+            <ul>
+                <li><strong>Kraljeva Sutjeska i Bobovac:</strong> Čuvari bosanske kraljevske povijesti i memorije na kraljicu Katarinu Kosaču, mjesto gdje se hodočasti u znak opstojnosti i povijesne svijesti.</li>
+                <li><strong>Svetište sv. Ive u Podmilačju:</strong> Jedno od najstarijih svetišta u BiH (iz 15. stoljeća), jedina crkva koja je preživjeća osmanska razaranja, poznata po čudesnim ozdravljenjima i tradicionalnom okupljanju uoči Ivanjdana.</li>
+                <li><strong>Međugorje (Hercegovina):</strong> Svjetski poznato marijansko središte koje od 1981. godine okuplja milijune hodočasnika iz cijeloga svijeta, prepoznato kao "ispovjedaonica svijeta" i mjesto duboke molitve i obraćenja.</li>
+            </ul>
+        </section>
 
-    <!-- 5. INTERAKTIVNA MAPA -->
-    <section id="mapa-sekcija" class="info-section dark-bg">
-        <div class="container">
-            <div class="section-title text-white">
-                <i class="fa-solid fa-map-marked-alt"></i>
-                <h2>Mapa Sakralnih Objekata i Groblja</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div id="map"></div>
-        </div>
-    </section>
-
-    <!-- 6. DRUŠTVENA I VJERSKA DOGAĐANJA -->
-    <section id="dogadjanja" class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-calendar-days"></i>
-                <h2>Društvena i Vjerska Događanja</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="grid-container">
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge"><i class="fa-solid fa-wheat-awn"></i> Kultura</div>
-                    <h3>Posavsko Kolo & Vašar za Veliku Gospu</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Sredina kolovoza / Velika Gospa</p>
-                    <p>Tradicionalna manifestacija koja okuplja Hrvate odžačkog kraja. Uz bogatu smotru folklora i izvorne pjesme, tradicionalni vašar predstavlja središnji događaj ljeta.</p>
-                </div>
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge crkva-badge"><i class="fa-solid fa-candle"></i> Vjerski spomen</div>
-                    <h3>Svetkovina Svih Svetih & Dušni Dan</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> 1. i 2. studenog</p>
-                    <p>Vrijeme molitve i sjećanja na pokojne. Uz tradicionalni vašar, na grobljima se služe svete mise te se mole opijela za duše vjernih mrtvih uz paljenje svijeća.</p>
-                </div>
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge duhovni-badge"><i class="fa-solid fa-music"></i> Duhovnost</div>
-                    <h3>Koncerti Duhovne Glazbe</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Tijekom godine</p>
-                    <p>U ambijentu župne crkve u Odžaku redovito se organiziraju koncerti duhovne glazbe i zborova, slaveći Gospodina kroz pjesmu i zajedništvo.</p>
-                </div>
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge moto-badge"><i class="fa-solid fa-motorcycle"></i> Zabava</div>
-                    <h3>Tradicionalna Motorijada</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Ljetni period</p>
-                    <p>Godišnje okupljanje ljubitelja motocikala iz cijele regije. Uključuje tradicionalni defile kroz ulice Odžaka i rock koncerte.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. DOMOVINSKA ZAHVALNOST I HVO -->
-    <section id="domovinski-rat" class="info-section crimson-bg">
-        <div class="container">
-            <div class="section-title text-white">
-                <i class="fa-solid fa-ribbon"></i>
-                <h2>Domovinska Zahvalnost i Spomen</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="spomen-container pretrazivo-objekt">
-                <div class="spomen-Ikona">
-                    <i class="fa-solid fa-monument"></i>
-                </div>
-                <div class="spomen-tekst">
+        <!-- KORISNE VANJSKE POVEZNICE -->
+        <section class="external-links">
+            <h3>Službeni izvori i vanjske poveznice</h3>
+            <p>Za detaljnije znanstvene radove, vijesti i informacije o biskupijama u BiH posjetite:</p>
+            <ul>
+                <li><a href="https://bkbih.ba" target="_blank" rel="noopener">Biskupska konferencija Bosne i Hercegovine (BK BiH)</a> - Službena krovna institucija katoličkih biskupija u BiH.</li>
