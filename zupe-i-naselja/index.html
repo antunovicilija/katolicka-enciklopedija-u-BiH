@@ -2,364 +2,183 @@
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katolička Baština Odžaka i Posavine</title>
-    <!-- Google Fonts: Vatikanska i moderna estetika -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Vatikanska paleta boja i tipografija */
-        :root {
-            --gold: #D4AF37;
-            --gold-light: #F3E5AB;
-            --crimson: #7A1C1C;
-            --dark: #1A1A1A;
-            --light-bg: #FDFDFB; /* Boja bjelokosti / papinski stil */
-            --text-color: #2C2C2C;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.9;
-            font-size: 1.15rem;
-        }
-
-        h1, h2, h3, .nav-logo {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1px;
-            color: var(--crimson);
-        }
-
-        /* Fiksni navigacijski izbornik */
-        header {
-            background-color: #ffffff;
-            border-bottom: 3px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .nav-logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-logo span {
-            color: var(--gold);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-item a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-item a:hover {
-            color: var(--gold);
-        }
-
-        /* Hero sekcija */
-        .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(122, 28, 28, 0.55)), url('https://unsplash.com') no-repeat center center/cover;
-            height: 55vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #ffffff;
-            padding: 20px;
-            border-bottom: 4px solid var(--gold);
-        }
-
-        .hero h1 {
-            color: #ffffff;
-            font-size: 3.8rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 900px;
-            font-weight: 300;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-            font-style: italic;
-        }
-
-        /* Slobodni stil sadržaja - bez kontejnera u obliku kutija */
-        .content-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            text-align: justify;
-        }
-
-        .content-section h2 {
-            font-size: 2.4rem;
-            margin-bottom: 30px;
-            text-align: left;
-            border-bottom: 1px solid rgba(122, 28, 28, 0.2);
-            padding-bottom: 10px;
-        }
-
-        .content-section h3 {
-            font-size: 1.5rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--crimson);
-            border-left: 4px solid var(--gold);
-            padding-left: 15px;
-        }
-
-        .content-section p {
-            margin-bottom: 25px;
-            color: #333333;
-        }
-
-        /* Istaknuti uvodni tekstovi s naglaskom na emociju */
-        .intro-text {
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--crimson);
-            line-height: 2;
-            margin-bottom: 35px;
-        }
-
-        /* Elegantne zlatne horizontalne linije s križem */
-        .section-divider {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-            margin: 60px auto;
-            position: relative;
-            text-align: center;
-            max-width: 85%;
-        }
-
-        .section-divider::after {
-            content: '✝';
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--light-bg);
-            padding: 0 20px;
-            color: var(--gold);
-            font-size: 1.4rem;
-        }
-
-        /* Duhovni citati */
-        .scripture-quote {
-            font-family: 'Cinzel', serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            color: var(--crimson);
-            text-align: center;
-            margin: 50px auto;
-            padding: 25px;
-            max-width: 800px;
-            border-top: 1px double var(--gold);
-            border-bottom: 1px double var(--gold);
-            line-height: 1.8;
-        }
-
-        /* Podnožje */
-        footer {
-            background-color: var(--dark);
-            color: #ffffff;
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 4px solid var(--gold);
-            margin-top: 80px;
-        }
-
-        .footer-logo {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        footer p {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        /* Prilagodba za mobitele */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .content-section h2 {
-                font-size: 1.9rem;
-            }
-        }
-    </style>
+    <title>Župe i Naselja općine Odžak - Popis</title>
 </head>
 <body>
 
-    <!-- Navigacija -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">ODŽAK <span>✝</span></a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#">Početna</a></li>
-                <li class="nav-item"><a href="https://github.io" target="_blank">Popis svih mjesta</a></li>
-                <li class="nav-item"><a href="https://github.io" target="_blank">Kontakt</a></li>
-            </ul>
-        </div>
-    </header>
+    <!-- GLAVNI IZBORNIK -->
+    <p>
+        <a href="../biskupije/index.html">Nadbiskupije i Biskupije</a> | 
+        <a href="../dekanati/index.html">Dekanati</a> | 
+        <a href="index.html">Župe i naselja</a> | 
+        <a href="../svetista/index.html">Svetišta</a> | 
+        <a href="../hodocasca/index.html">Hodočašća</a> | 
+        <a href="../kontakt.html">Kontakt</a>
+    </p>
+    
+    <hr>
 
-    <!-- Glavni vizualni dio -->
-    <section class="hero">
-        <h1>Župa Odžak</h1>
-        <p>"Gdje se prošlost susreće s molitvom, a patnja rađa neuništivu nadu i ljubav"</p>
-    </section>
+    <h1>Župe i naselja općine Odžak (Doborski dekanat)</h1>
+    <p>Detaljan i otvoren popis župa, pripadajućih sela, mjesnih svetkovina (patrona) te rasporeda tradicionalnih blagoslova polja i groblja u posavskom kraju.</p>
 
-    <!-- SEKCIJA 1: POVIdEST I STRADANJA -->
-    <section class="content-section">
-        <h2>Povijest Župe i Katoličkog Puka Županije Posavske</h2>
-        <p class="intro-text">Župa Odžak, smještena u srcu plodne ravnice Županije Posavske, nosi povijesni križ i ponos naroda koji je kroz stoljeća opstao unatoč nebrojenim kušnjama i razaranjima.</p>
-        
-        <p>Župa Odžak (povijesno vezana uz stari naziv Dobor) ima duboke korijene neraskidivo vezane uz opstojnost hrvatskog katoličkog naroda u Bosanskoj Posavini. Službeno je utemeljena 1900. godine odvajanjem pojedinih naselja od povijesne matične župe Potočani. Kroz stoljeća, ovaj je kraj predstavljao neprobojan bedem kršćanstva na rijeci Savi, ali je zbog svog specifičnog geografskog položaja često bio meta velikih osvajanja, etničkih čišćenja i dubokih patnji.</p>
-        
-        <h3>Tragedija Drugog svjetskog rata i poraća</h3>
-        <p>Najteže povijesno stradanje župa Odžak i cijeli posavski kraj doživjeli su u svibnju 1945. godine. Dok je u ostatku Europe slavljen mir i završetak rata, u Odžaku i okolnim selima vođene su ogorčene, tragične bitke (povijesno poznate kao Bitka za Odžak). Nakon sloma obrane, uslijedile su stravične, masovne likvidacije katoličkog puka, domobrana i civila. Župa je doslovno prokrvarila do temelja – stradalo je više od 3.000 muškaraca, očeva i mladića iz ovog užeg kraja, zbog čega su mnoga posavska sela desetljećima ostala pusta, prepoznatljiva po brojnim samohranim majkama i udovicama koje su u suzama podizale djecu.</p>
-        
-        <h3>Stradanje u Domovinskom ratu</h3>
-        <p>Novi val patnje i progonstva uslijedio je u srpnju 1992. godine tijekom velikosrpske agresije. Cjelokupno katoličko stanovništvo bilo je prisiljeno napustiti svoja ognjišta i spas potražiti u izbjeglištvu preko Save. Svi sakralni objekti, obiteljske kuće i kulturna dobra sustavno su minirani, zapaljeni i sravnjeni sa zemljom kako bi se zatro svaki trag kršćanske prisutnosti. No, povratak vjernika nakon potpisivanja Daytonskog sporazuma u veljači 1996. godine pokazao je neuništivu ljubav posavskog čovjeka prema svojoj grudi. Iz pepela i ruševina, radom i vjerom, započela je veličanstvena obnova župe.</p>
-    </section>
+    <hr>
 
-    <hr class="section-divider">
+    <!-- 1. ŽUPA ODŽAK -->
+    <h2>1. Župa Glavosjeka sv. Ivana Krstitelja – Odžak (Središte)</h2>
+    <p><strong>Opis i povijest:</strong> Župa je utemeljena 1826. godine odvajanjem od drevne župe Potočani. Crkva je kroz povijest nekoliko puta stradavala, a u potpunosti je razorena i spaljena u Domovinskom ratu 1992. godine. Nakon povratka vjernika, izgrađena je nova, moderna župna crkva koja je duhovno i upravno središte Doborskog dekanata.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Glavosjek svetog Ivana Krstitelja (29. kolovoza).</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija obilaska groblja :</h4>
+    <ul>
+        <li>
+            <strong>Grad Odžak (Centar)</strong><br>
+            Svetkovina: Glavosjek sv. Ivana (29. kolovoza).<br>
+            Obi / Blagoslov: Gradsko katoličko groblje u Odžaku – Proljetni blagoslov polja i misa na groblju (Mlade nedjelje u svibnju).
+        </li>
+        <li>
+            <strong>Novo Selo (dizajnirano kao dio župe Odžak)</strong><br>
+            Svetkovina: Pučke svibanjske pobožnosti.<br>
+            Obi / Blagoslov: Mjesno groblje u Novom Selu – Tradicionalna zavjetna misa i blagoslov usjeva (obično prva nedjelja nakon blagdana sv. Marka).
+        </li>
+        <li>
+            <strong>Balegovac (Južni dio / općina Odžak)</strong><br>
+            Svetkovina: Tradicionalni blagoslovi i pučke molitve vjernog naroda uz kapelice.
+        </li>
+    </ul>
 
-    <!-- SEKCIJA 2: PASTORALNO VODSTVO -->
-    <section class="content-section">
-        <h2>Duhovni Pastiri: Svećenički Red i Vodstvo</h2>
-    <div class="scripture-quote">
-        "U tebe se, Gospodine, uzdam, ne daj da se postidim uvijeke. Iz pepela smo podigli zidove, u suzama smo posijali vjeru, a u radosti žanjemo milost Božju na našim posavskim ravnicama."
-    </div>
+    <hr>
 
-    <!-- SEKCIJA 3: LITURGIJSKO SRCE -->
-    <section class="content-section">
-        <h2>Liturgijsko Srce: Svetkovine, Procesije i Duhovna Događanja</h2>
-        <p>Vjerski život u Odžaku ne sastoji se od pukih običaja; to je živa rijeka ljubavi, pjesme i suza radosnica koja povezuje nebo i ovu mučeničku posavsku zemlju.</p>
-        
-        <h3>Velika svetkovina: Patron župe (29. kolovoza)</h3>
-        <p>Središnji stup duhovne godine je <strong>Glavosjek svetog Ivana Krstitelja</strong>. Za ovaj se dan vjernici pripremaju s posebnom ljubavlju kroz veliku devetnicu, hodočasteći svakog četvrtka u župnu crkvu. Vrhunac molitvene topline osjeća se na Misi uočnici, kada stotine obitelji, držeći upaljene svijeće, kreću u tihu i dostojanstvenu procesiju oko crkve noseći povijesnu sliku mučeništva sv. Ivana. U tim trenucima, dok gradom odjekuju marijanske pjesme, brišu se kilometri i daljine – tisuće naših obitelji iz Njemačke, Austrije, Švicarske i Hrvatske stoje rame uz rame s onima koji su ostali, stopljeni u jedno srce.</p>
-        
-        <h3>Tijelovo i blagoslov grada</h3>
-        <p>Jedan od najljepših izraza javnog svjedočenja vjere je svetkovina <strong>Tijelova (Presvetog Tijela i Krvi Kristove)</strong>. Nakon svečane pučke mise, rijeka vjernika, predvođena djecom u bijelim haljinama koja prosipaju latice ruža, prolazi ulicama Odžaka. Noseći Presveti Oltarski Sakramenat pod baldahinom, svećenici zazivaju Božji blagoslov, mir i napredak na sve stanovnike grada, na njihove domove, radna mjesta i polja. To je trenutak duboke zahvale što smo živi, što smo opstali i što nas Bog vodi kroz sve životne kušnje.</p>
-        
-        <h3>Manje svetkovine, duhovne obnove i božićni koncerti</h3>
-        <p>Župa duboko diše i kroz proslave blagdana sv. Ane, sv. Josipa te Rođenja sv. Ivana Krstitelja (Ivanjdan). Kroz godinu se redovito organiziraju duhovne obnove za mlade i bračne parove, privlačeći poznate voditelje duhovnih susreta. Posebno toplo emotivme ozračje donose <strong>Božićni i uskrsni koncerti</strong> župnog zbora te gostujućih posavskih skupina, kada crkva odjekuje tradicionalnim napjevima koji u svakom slušatelju bude sjećanje na djetinjstvo, toplinu bakine peći i sigurnost očevog zagrljaja.</p>
-    </section>
+    <!-- 2. ŽUPA POTOČANI -->
+    <h2>2. Župa sv. Marka Evanđelista – Potočani</h2>
+    <p><strong>Opis i povijest:</strong> Potočani su jedna od najstarijih i matičnih župa u ovom dijelu Bosanske Posavine, obnovljena još 1832. godine. Iz ove župe razvile su se gotovo sve ostale župe odžačkog kraja. Župna crkva je pretrpjela potpuni slom i rušenje u ratu 1992., a danas je potpuno obnovljena i ponosno stoji kao povijesni stup opstojnosti.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Sveti Marko Evanđelist (25. travnja).</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija obilaska groblja :</h4>
+    <ul>
+        <li>
+            <strong>Selo Potočani</strong><br>
+            Svetkovina: Sveti Marko (25. travnja) – Veliko narodno slavlje.<br>
+            Obi / Blagoslov: Glavno Potočansko groblje – Središnji proljetni blagoslov polja, mise za pokojne i tradicija okupljanja obitelji.
+        </li>
+        <li>
+            <strong>Selo Srnava</strong><br>
+            Svetkovina: Gospa od Anđela.<br>
+             / Blagoslov: Groblje Srnava se održavaju u proljetnom ciklusu, misa i molitva za plodne njive i očuvanje od nevremena.
+        </li>
+        <li>
+            <strong>Selo Jošava</strong><br>
+            Svetkovina: Blagoslov polja i pučke zavjetne molitve.<br>
+            Obi / Blagoslov: Groblje Jošava – Tradicionalni obilazak i blagoslov u svibnju.
+        </li>
+    </ul>
 
-    <!-- SEKCIJA 4: BLAGOSLOV POLJA I GROBLJA -->
-    <section class="content-section">
-        <h2>Zemlja Natopljena Vjerom: Blagoslov Polja, Groblja i Pijetet</h2>
-        <p class="intro-text">Za posavskog čovjeka, zemlja je svetinja, a grobovi predaka su nebeske straže koje čuvaju identitet i svjedoče o stoljetnoj opstojnosti katoličkog puka.</p>
-        
-        <h3>Tradicionalni blagoslov polja</h3>
-        <p>U proljetnim danima, počevši od Bijele nedjelje (druge nedjelje po Uskrsu), odžačkim krajem započinju mise s <strong>blagoslovom polja</strong>. Svećenik, zazivajući Božju milost na sve četiri strane svijeta, moli za rodnu godinu, zaštitu od nevremena i nepogoda, ali iznad svega za blagoslov ljudskoga rada. To su dirljivi susreti na seoskim grobljima i kapelicama gdje se moli s krunicom u ruci, osjećajući duboku povezanost s težačkom mukom naših djedova koji su s molitvom na usnama orali ove plodne ravnice uz Savu.</p>
-        
-        <h3>Svetišta mira i vječnosti: Groblja i Mjesta Pijeteta</h3>
-        <p>Katolička groblja na području župe Odžak nisu samo počivališta mrtvih, već istinski povijesni arhivi na otvorenom koji svjedoče o stoljećima katoličke prisutnosti, imenima i rodovima koji su gradili Posavinu. Posebno mjesto zauzima povijesno groblje <strong>Bijele Bare</strong> (gdje počivaju stari odžački župnici i generacije vjernika) te groblja u okolnim naseljima poput Posavske Mahale. Ona odišu posebnom tišinom i pažnjom kojom se održavaju. Tradicionalne mise za Svisvete i Dušni dan okupljaju tisuće vjernika, uključujući i one iz dijaspore, koji dolaze upaliti svijeće i pomoliti se za svoje pokojne. Tisuće upaljenih svijeća pretvaraju ova groblja u blistave gradove svjetlosti, dok tihi jecaji i šapat molitve spajaju živu i nebesku Crkvu.</p>
-        
-        <h3>Opijela i sprovodni obredi</h3>
-        <p>Kada se ugasi život jednog odžačkog katolika, sprovodni obredi i opijela prožeti su dubokom kršćanskom sućuti. Cijela zajednica se okuplja kako bi podijelila bol s obitelji. U tim trenucima, pjesma "Sućuti tvojoj, Isuse" i zvuk crkvenih zvona koja jecaju nad posavskom ravnicom ne govore o konačnom odlasku, već o povratku u naručje Oca, tamo gdje više nema boli, suza ni progonstva.</p>
-        
-        <h3>Spomen-obilježja žrtvama ratova</h3>
-        <p>Posebno mjesto u srcima vjernika zauzimaju spomen-obilježja podignuta u čast poginulim braniteljima i civilnim žrtvama Drugog svjetskog i Domovinskog rata. Ova mjesta stalni su podsjetnik na visoku cijenu slobode i opstanka na posavskoj grudi.</p>
-    </section>
+    <hr>
 
-    <!-- SEKCIJA 5: POVIJESNE OSOBE I HODOČAŠĆA -->
-    <section class="content-section">
-        <h2>Povijesne Osobe Crkve, Vjere i Naroda</h2>
-        <p>Kroz povijest, odžački je kraj dao, ali i ugostio brojne istaknute crkvene pastire, redovnike, redovnice i katoličke intelektualce koji su širili prosvjetu i vjeru.</p>
-        
-        <h3>Požrtvovni župnici i pastoralni radnici</h3>
-        <p>Mnogi svećenici i franjevci položili su svoje živote ili proveli godine u tamnicama braneći pravo naroda na vjeru i nacionalno ime. Među brojnim važnim ličnostima Hrvata katolika ovog kraja, zlatnim slovima je upisano ime <strong>vlč. Marijana Ivandića</strong>, požrtvovnog župnika koji je preuzeo skrb o župi u iznimno teškim vremenima (1937. godine) te podnio neizmjernu žrtvu zajedno sa svojim narodom. Njegov pastoralni rad nadilazio je same crkvene zidove; bio je učitelj, graditelj i istinski branitelj prava siromašnih.</p>
-        
-        <h3>Svjedoci vjere i neustrašive posavske majke</h3>
-        <p>U kolektivnom sjećanju naroda Odžaka živi uspomena na brojne svećenike mučenike koji su podnijeli teret totalitarnih režima 20. stoljeća, ostajući vjerni Kristu i Svetoj Stolici do posljednjeg daha. Uz njih, povijest pamti i tisuće neimenovanih majki – posavskih udovica. Te hrabre žene, koje su nakon stravičnih masovnih likvidacija u svibnju 1945. godine ostale same, podizale su djecu u gladi i siromaštvu, ali s neustrašivim katoličkim odgojem, prenoseći krunicu kao najveće obiteljsko blago.</p>
-    </section>
+    <!-- 3. ŽUPA NOVO SELO - BALEGOVAC -->
+    <h2>3. Župa sv. Petra i Pavla – Novo Selo (Balegovac)</h2>
+    <p><strong>Opis i povijest:</strong> Ova župa je osnovana u novije doba (tijekom 20. stoljeća) zbog velikog broja vjernika i rasta naselja. Obuhvaća radišne posavske ljude i prepoznatljiva je po iznimno lijepo uređenom crkvenom dvorištu i župnoj crkvi koja je bila potpuno srušena do temelja u ratu, a obnovljena je žrtvom i donacijama iseljeništva.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Sveti Petar i Pavao – Petrovo (29. lipnja).</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija obilaska groblja:</h4>
+    <ul>
+        <li>
+            <strong>Novo Selo / Balegovac</strong><br>
+            Svetkovina: Petrovo (29. lipnja) – Središnji ljetni blagdan mjesta.<br>
+             / Blagoslov: Mjesno groblje u Balegovcu – Veliki blagoslov polja i groblja (Mlade nedjelje prije ili nakon Petrova), hodočašće i okupljanje mještana iz dijaspore.
+        </li>
+    </ul>
 
-    <section class="content-section">
-        <h2>Hodočašća Nade i Tradicionalna Okupljanja</h2>
-        <p class="intro-text">Vjernici župe Odžak su narod koji hoda s vjerom. Hodajući u molitvi, s krunicom u ruci, odžački hodočasnici nose sve patnje, bolesti, ali i zahvale svog zavičaja pred prijestolje Nebeske Majke.</p>
-        
-        <p>Svake godine s posebnom radošću i pobožnošću organiziraju se hodočašća u najveća marijanska svetišta. Mladi i stariji zajedno hodočaste Gospi u <strong>Komušinu (Kondžilo)</strong>, tražeći zagovor Majke u očuvanju obiteljskog zajedništva. Također, nezaobilazna su putovanja i hodočasnički hod prema Međugorju, Svetištu sv. Ive u Podmilačju te nacionalnom marijanskom svetištu Marija Bistrica u Republici Hrvatskoj.</p>
-        
-        <h3>Kulturno-vjerska manifestacija "Posavsko kolo"</h3>
-        <p>Iako kulturno-zabavnog karaktera, tradicionalna manifestacija "Posavsko kolo" duboko je povezana s katoličkim blagdanom Velike Gospe. Kroz smotre folklora, izvorne pjesme i predivne narodne nošnje, manifestacija slavi Boga, obitelj i ljubav prema tradiciji posavskog kraja. To je vrijeme neopisive radosti kada se cijeli grad budi i slavi svoje korijene.</p>
-        
-        <h3>Dani sjećanja</h3>
-        <p>Svake godine krajem svibnja, župa i općina organiziraju "Dane sjećanja" u znak spomena na velika stradanja iz svibnja 1945. godine. Ovaj događaj uključuje svete mise, molitve odrješenja za pokojne i povijesne simpozije, čuvajući istinu od zaborava.</p>
-    </section>
+    <hr>
 
-    <!-- SEKCIJA 6: INSTITUCIJE -->
-    <section class="content-section">
-        <h2>Institucije Kulture, Obrazovanja i Sporta</h2>
-        <p>Katolička crkva je povijesno uvijek podupirala razvoj pismenosti, kulture, sporta i općeg društvenog napretka u Posavini, što se snažno odražava i na današnji institucionalni život općine Odžak.</p>
-        
-        <h3>Važne institucije kulture i očuvanje baštine</h3>
-        <p>U Odžaku aktivno djeluje <strong>HKD (Hrvatsko kulturno društvo) "Napredak"</strong>, koje kroz svoje sekcije, nakladništvo i manifestacije potiče mlade na bavljenje glazbom, umjetnošću i očuvanjem povijesne baštine. Centar za kulturu u Odžaku služi kao glavno mjesto održavanja brojnih izložbi s kršćanskom tematikom, kazališnih predstava te promocija knjiga o povijesti i tradiciji Posavine.</p>
-        
-        <h3>Obrazovanje i odgoj novih naraštaja</h3>
-        <p>Kroz osnovne škole i <strong>Srednju školu Pere Zečevića u Odžaku</strong>, mladi dobivaju kvalitetno obrazovanje prožeto etičkim i moralnim vrijednostima. Katolički vjeronauk u školama ima ključnu ulogu u odgoju novih naraštaja u duhu mira, tolerancije, obiteljskih vrijednosti i ljubavi prema bližnjemu, spajajući suvremena znanja s kršćanskim moralom.</p>
-        
-        <h3>Sportski život i zajedništvo mladih</h3>
-        <p>Sport u Odžaku ima iznimno dugu i uspješnu tradiciju, posebice kroz odbojku (HOK Balegovac, OK Napredak i drugi klubovi) te nogomet (NK Odžak 102). Ovi klubovi okupljaju stotine mladih ljudi, a lokalna zajednica i crkva redovito podupiru sportske aktivnosti i turnire koji promiču zdrav život, timski duh, fair-play i međusobno zajedništvo među mladima Posavske županije. Kroz sportska borilišta, odžačka mladež razvija disciplinu i zdrav takmičarski duh, ponosno predstavljajući svoj rodni kraj.</p>
-    </section>    </section>
+    <!-- 4. ŽUPA GORNJA DUBICA -->
+    <h2>4. Župa sv. Josipa – Gornja Dubica</h2>
+    <p><strong>Opis i povijest:</strong> Župa Gornja Dubica utemeljena je sredinom 19. stoljeća (1852. godine) odvajanjem od Potočana. Smještena je uz samu rijeku Savu. Župa je kroz povijest bila mjesto velikih stradanja katoličkog puka (osobito na završetku Drugog svjetskog rata u svibnju 1945. godine), što je ostavilo duboku ranu u povijesti mjesta. Crkva je u ratu 1992. minirana, a danas je u potpunosti podignuta iz pepela.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Sveti Josip Radnik (1. svibnja) i Sveti Josip Zaručnik (19. ožujka).</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija obilaska groblja :</h4>
+    <ul>
+        <li>
+            <strong>Selo Gornja Dubica</strong><br>
+            Svetkovina: Sveti Josip (1. svibnja).<br>
+            Obi / Blagoslov: Staro groblje u Gornjoj Dubici – Povijesno mjesto molitve, blagoslov polja i misa (svibanj).
+        </li>
+        <li>
+            <strong>Selo Donja Dubica</strong><br>
+            Svetkovina: Pučke svibanjske pobožnosti i zavjeti.<br>
+            Obi / Blagoslov: Katoličko groblje Donja Dubica – i proljetne mise za pokojnike, blagoslov usjeva i poljoprivrednih radova.
+        </li>
+        <li>
+            <strong>Selo Vojskova</strong><br>
+            Svetkovina: Tradicionalne ljetne mise uz kapelice.<br>
+             / Blagoslov: Mjesno groblje Vojskova – Tradicionalni godišnji blagoslov groblja.
+        </li>
+        <li>
+            <strong>Selo Zorice</strong><br>
+            Svetkovina: Blagoslovi polja u proljeće.<br>
+             / Blagoslov: Groblje Zorice – Molitva i blagoslov njiva uz rijeku Savu radi obrane od poplava.
+        </li>
+    </ul>    <!-- 5. ŽUPA POSAVSKA MAHALA -->
+    <h2>5. Župa Srca Marijina – Posavska Mahala</h2>
+    <p><strong>Opis i povijest:</strong> Ova župa osnovana je krajem 20. stoljeća odvajanjem od Gornje Dubice zbog demografskog rasta ovog velikog i radišnog sela. Posavska Mahala je povijesno prepoznatljiva kao mjesto goleme žrtve i stradanja katoličkog stanovništva odžačkog kraja na samom završetku Drugog svjetskog rata (u svibnju 1945. godine). Nova crkva i spomen-park podignuti su kao simboli opstanka i vjernosti obiteljskim korijenima.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Bezgrješno Srce Marijino (pomični blagdan, najčešće u lipnju).</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija blagoslova:</h4>
+    <ul>
+        <li>
+            <strong>Selo Posavska Mahala</strong><br>
+            Svetkovina: Srce Marijino (lipanj) – Središnji dan župne zajednice.<br>
+            Blagoslov: Mjesno katoličko groblje "Nujića groblje" – Tradicionalna komemorativna sveta misa u svibnju za sve žrtve Drugog svjetskog rata i poraća, te proljetni blagoslov polja, usjeva i obitelji.
+        </li>
+    </ul>
 
-    <!-- PODNOŽJE STRANICE (FOOTER) -->
-    <footer>
-        <div class="footer-logo">Župa Glavosjeka sv. Ivana Krstitelja</div>
-        <p>Katolička povijesna i kulturna baština općine Odžak i Županije Posavske</p>
-        <p style="margin-top: 25px; font-size: 0.85rem; color: var(--gold); letter-spacing: 1px;">"Čuvajmo vjeru djedova, ljubimo posavsku grudu i živimo u Kristovoj ljubavi."</p>
-        <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026. Sva prava pridržana.</p>
-    </footer>
+    <hr>
+
+    <!-- 6. ŽUPA SVILAJ -->
+    <h2>6. Župa Imena Marijina – Svilaj</h2>
+    <p><strong>Opis i povijest:</strong> Župa Svilaj utemeljena je 1873. godine odvajanjem od Potočana. Smještena je na samom sjeverozapadu općine Odžak uz rijeku Savu. Zbog blizine granice i ratnih razaranja u prošlom stoljeću, župa je pretrpjela velika materijalna oštećenja, no vjerni narod je nakon povratka u potpunosti obnovio crkvu, župnu kuću i popratne sakralne objekte.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Ime Marijino (12. rujna) – Velika jesenja proslava u odžačkom kraju.</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija blagoslova:</h4>
+    <ul>
+        <li>
+            <strong>Selo Svilaj</strong><br>
+            Svetkovina: Ime Marijino (12. rujna).<br>
+            Blagoslov: Glavno Svilajsko groblje – Proljetna sveta misa s procesijom i blagoslovom polja za dobar urod i zaštitu od nevremena (svibanj).
+        </li>
+        <li>
+            <strong>Selo Vrbovac</strong><br>
+            Svetkovina: Gospa Žalosna – Pobožnosti uz kapelice.<br>
+            Blagoslov: Mjesno groblje u Vrbovcu – Tradicionalna sveta misa i blagoslov grobova u proljetnom razdoblju.
+        </li>
+        <li>
+            <strong>Selo Gornji Svilaj</strong><br>
+            Svetkovina: Blagoslov usjeva i proljetne molitve naroda.<br>
+            Blagoslov: Groblje u Gornjem Svilaju – Godišnji blagoslov obitelji i njiva.
+        </li>
+    </ul>
+
+    <hr>
+
+    <!-- 7. ŽUPA PRUD -->
+    <h2>7. Župa sv. Jakova Starijeg – Prud</h2>
+    <p><strong>Opis i povijest:</strong> Prud je jedno od najspecifičnijih naselja u općini Odžak, smješteno na samom ušću rijeke Bosne u Savu. Župa je utemeljena u drugoj polovici 20. stoljeća (1964. godine) izdvajanjem iz župe Bosanski Šamac. Selo i crkva bili su potpuno potopljeni tijekom velikih povijesnih poplava, a pretrpjeli su i sustavno uništavanje u ratu 1992. godine. Danas je Prud potpuno obnovljeno, moderno i složno posavsko mjesto.</p>
+    <p><strong>Glavna svetkovina (Patron):</strong> Sveti Jakov Stariji, apostol (25. srpnja).</p>
+    
+    <h4>Pripadajuća sela, svetkovine i tradicija blagoslova:</h4>
+    <ul>
+        <li>
+            <strong>Selo Prud</strong><br>
+            Svetkovina: Sveti Jakov (25. srpnja) – Središnje ljetno okupljanje i narodno slavlje.<br>
+            Blagoslov: Mjesno katoličko groblje u Prudu – Svečana proljetna misa na groblju uz tradicionalne zazive za blagoslov polja, stoke i radova, te jesenja misa zahvalnica za plodove zemlje.
+        </li>
+    </ul>
+
+    <hr>
+
+    <p align="center">&copy; 2026 Katolička Crkva i Svetišta u BiH - Povijesno-informativni portal</p>
 
 </body>
 </html>
 
 
+    <hr>
