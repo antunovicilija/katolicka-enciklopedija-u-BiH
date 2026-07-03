@@ -4,34 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odžak - Katolička Župa i Dekanat | Vatikanski Arhiv</title>
-    <!-- Ispravni Google Fonts linkovi za vatikansku tipografiju -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts za elegantnu vatikansku tipografiju -->
+    <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- Ispravan FontAwesome link za ikone -->
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome za kršćanske i opće ikone -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Ispravan Leaflet CSS za interaktivnu mapu -->
+    <!-- Leaflet CSS za interaktivnu mapu -->
     <link rel="stylesheet" href="https://unpkg.com" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Fiksna Navigacija -->
+    <!-- Fiksna Navigacija sa samo dva polja -->
     <nav class="vatikan-nav">
         <div class="nav-logo">
             <i class="fa-solid fa-cross cross-icon"></i>
             <span>VATIKANSKI ARHIV</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#pocetna">Početna</a></li>
-            <li><a href="#vrijeme-sekcija">Prognoza</a></li>
-            <li><a href="#istorija">Istorija</a></li>
-            <li><a href="#objekti">Crkve & Sakralni Objekti</a></li>
-            <li><a href="#mapa-sekcija">Mapa</a></li>
-            <li><a href="#dogadjanja">Događanja</a></li>
-            <li><a href="#osobe">Važne Osobe</a></li>
-            <li><a href="#groblja">Groblja</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/index.html"><i class="fa-solid fa-house"></i> Početna</a></li>
+            <li><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/kontakt.html"><i class="fa-solid fa-address-book"></i> Kontakt</a></li>
         </ul>
     </nav>
 
@@ -56,12 +49,12 @@
     <div class="search-bar-container">
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="pretraga-input" placeholder="Pretraži crkve, groblja, osobe ili istorijske događaje u Odžaku..." onkeyup="pretraziStranicu()">
+            <input type="text" id="pretraga-input" placeholder="Pretraži crkve, groblja, događanja, HVO ili osobe u Odžaku..." onkeyup="pretraziStranicu()">
         </div>
     </div>
 
     <!-- 2. VREMENSKA PROGNOZA -->
-    <section id="vrijeme-sekcija" class="info-section light-bg">
+    <section class="info-section light-bg">
         <div class="container">
             <div class="section-title">
                 <i class="fa-solid fa-cloud-sun"></i>
@@ -69,13 +62,13 @@
                 <div class="gold-divider"></div>
             </div>
             <div id="weather-container" class="grid-container">
-                <!-- JavaScript ubacuje podatke ovdje -->
+                <!-- JavaScript automatski ubacuje trodnevnu prognozu ovdje -->
             </div>
         </div>
     </section>
 
     <!-- 3. DUBOKA ISTORIJA -->
-    <section id="istorija" class="info-section history-bg">
+    <section class="info-section history-bg">
         <div class="container">
             <div class="section-title">
                 <i class="fa-solid fa-book-bible"></i>
@@ -87,7 +80,7 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <h3>1593. Godina — Prvi spomeni i Dobor-grad</h3>
-                        <p>Područje današnjeg Odžaka usko je vezano uz povijest drevne utvrde Dobor, koja je bila poprište brojnih bitaka za obranu kršćanstva.</p>
+                        <p>Područje današnjeg Odžaka usko je vezano uz povijest drevne utvrde Dobor, koja je bila poprište brojnih bitaka za obranu kršćanstva u Posavini.</p>
                     </div>
                     <div class="timeline-item">
                         <h3>1784. Godina — Uspostava samostalne kapelanije</h3>
@@ -103,7 +96,7 @@
     </section>
 
     <!-- 4. CRKVE I SAKRALNI OBJEKTI -->
-    <section id="objekti" class="info-section light-bg">
+    <section class="info-section light-bg">
         <div class="container">
             <div class="section-title">
                 <i class="fa-solid fa-church"></i>
@@ -116,7 +109,7 @@
                     <div class="card-body">
                         <span class="card-tag">Župna Crkva</span>
                         <h3>Crkva Glavosjeka sv. Ivana Krstitelja</h3>
-                        <p>Centralno sakralno zdanje u Odžaku, obnovljeno nakon razaranja. Mjesto duhovnog okupljanja i ponosa odžačkih katolika.</p>
+                        <p>Centralno sakralno zdanje u Odžaku, vjerno obnovljeno nakon ratnih razaranja. Središte duhovnog života i ponosa svih odžačkih katolika.</p>
                     </div>
                 </div>
                 <div class="sakralni-card pretrazivo-objekt">
@@ -124,7 +117,7 @@
                     <div class="card-body">
                         <span class="card-tag">Kapela</span>
                         <h3>Zavjetna Kapelica</h3>
-                        <p>Mala sakralna građevina podignuta u znak zavjeta i molitvene zaštite župljana od svih nedaća.</p>
+                        <p>Mala sakralna građevina podignuta u znak dubokog zavjeta i molitvene zaštite mještana i putnika od svih ovozemaljskih nedaća.</p>
                     </div>
                 </div>
             </div>
@@ -132,7 +125,7 @@
     </section>
 
     <!-- 5. INTERAKTIVNA MAPA -->
-    <section id="mapa-sekcija" class="info-section dark-bg">
+    <section class="info-section dark-bg">
         <div class="container">
             <div class="section-title text-white">
                 <i class="fa-solid fa-map-marked-alt"></i>
@@ -144,7 +137,7 @@
     </section>
 
     <!-- 6. DRUŠTVENA I VJERSKA DOGAĐANJA -->
-    <section id="dogadjanja" class="info-section light-bg">
+    <section class="info-section light-bg">
         <div class="container">
             <div class="section-title">
                 <i class="fa-solid fa-calendar-days"></i>
@@ -155,33 +148,33 @@
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge"><i class="fa-solid fa-wheat-awn"></i> Kultura</div>
                     <h3>Posavsko Kolo & Vašar za Veliku Gospu</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Sredina kolovoza / Velika Gospa</p>
-                    <p>Tradicionalna manifestacija koja okuplja Hrvate odžačkog kraja. Uz bogatu smotru folklora i izvorne pjesme, tradicionalni vašar predstavlja središnji događaj ljeta.</p>
+                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Sredina kolovoza / Blagdan Velike Gospe</p>
+                    <p>Tradicionalna manifestacija koja svake godine okuplja Hrvate odžačkog kraja i brojne dijaspore. Uz smotru folklora, izvorne pjesme i narodne nošnje, tradicionalni seoski vašar predstavlja središnji društveni događaj ljeta.</p>
                 </div>
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge crkva-badge"><i class="fa-solid fa-candle"></i> Vjerski spomen</div>
                     <h3>Svetkovina Svih Svetih & Dušni Dan</h3>
                     <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> 1. i 2. studenog</p>
-                    <p>Vrijeme molitve i sjećanja na pokojne. Uz tradicionalni vašar, na grobljima se služe svete mise te se mole opijela za duše vjernih mrtvih uz paljenje svijeća.</p>
+                    <p>Vrijeme duboke molitve i sjećanja na pokojne. Uz prateći vašar, na grobljima se služe svečane svete mise te se mole opijela za duše vjernih mrtvih uz masovno paljenje svijeća.</p>
                 </div>
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge duhovni-badge"><i class="fa-solid fa-music"></i> Duhovnost</div>
                     <h3>Koncerti Duhovne Glazbe</h3>
                     <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Tijekom godine</p>
-                    <p>U ambijentu župne crkve u Odžaku redovito se organiziraju koncerti duhovne glazbe i zborova, slaveći Gospodina kroz pjesmu i zajedništvo.</p>
+                    <p>U predivnom ambijentu župne crkve u Odžaku redovito se organiziraju koncerti duhovne glazbe, zborova i gostujućih kršćanskih izvođača, slaveći Gospodina kroz pjesmu i zajedništvo.</p>
                 </div>
                 <div class="dogadjaj-card pretrazivo-objekt">
                     <div class="dogadjaj-badge moto-badge"><i class="fa-solid fa-motorcycle"></i> Zabava</div>
                     <h3>Tradicionalna Motorijada</h3>
                     <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Ljetni period</p>
-                    <p>Godišnje okupljanje ljubitelja motocikala iz cijele regije. Uključuje tradicionalni defile kroz ulice Odžaka i rock koncerte.</p>
+                    <p>Godišnje okupljanje ljubitelja motocikala iz cijele regije i inozemstva. Događaj uključuje tradicionalni defile kroz ulice Odžaka, moto-igre i rock koncerte na otvorenom.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 7. DOMOVINSKA ZAHVALNOST I HVO -->
-    <section id="domovinski-rat" class="info-section crimson-bg">
+    <section class="info-section crimson-bg">
         <div class="container">
             <div class="section-title text-white">
                 <i class="fa-solid fa-ribbon"></i>
