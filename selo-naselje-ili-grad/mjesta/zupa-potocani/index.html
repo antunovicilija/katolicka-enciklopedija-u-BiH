@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katolička Baština Potočana i Posavine</title>
+    <!-- Google Fonts: Vatikanska i moderna estetika -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Vatikanska paleta boja i tipografija */
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --crimson: #7A1C1C;
+            --dark: #1A1A1A;
+            --light-bg: #FDFDFB; /* Boja bjelokosti / papinski stil */
+            --text-color: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.9;
+            font-size: 1.15rem;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            color: var(--crimson);
+        }
+
+        /* Fiksni navigacijski izbornik */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero sekcija */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(122, 28, 28, 0.55)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            font-style: italic;
+        }
+
+        /* Slobodni stil sadržaja - bez kontejnera u obliku kutija */
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: justify;
+        }
+
+        .content-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: 1px solid rgba(122, 28, 28, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--crimson);
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+        }
+
+        .content-section p {
+            margin-bottom: 25px;
+            color: #333333;
+        }
+
+        /* Istaknuti uvodni tekstovi s naglaskom na emociju */
+        .intro-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--crimson);
+            line-height: 2;
+            margin-bottom: 35px;
+        }
+
+        /* Elegantne zlatne horizontalne linije s križem */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 60px auto;
+            position: relative;
+            text-align: center;
+            max-width: 85%;
+        }
+
+        .section-divider::after {
+            content: '✝';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--light-bg);
+            padding: 0 20px;
+            color: var(--gold);
+            font-size: 1.4rem;
+        }
+
+        /* Duhovni citati */
+        .scripture-quote {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--crimson);
+            text-align: center;
+            margin: 50px auto;
+            padding: 25px;
+            max-width: 800px;
+            border-top: 1px double var(--gold);
+            border-bottom: 1px double var(--gold);
+            line-height: 1.8;
+        }
+
+        /* Prilagodba za mobitele */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content-section h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigacija -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">POTOČANI <span>✝</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#">Početna</a></li>
+                <li class="nav-item"><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/kontakt.html" target="_blank">Popis svih mjesta</a></li>
+                <li class="nav-item"><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/kontakt.html" target="_blank">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Glavni vizualni dio -->
+    <section class="hero">
+        <h1>Župa Potočani</h1>
+        <p>"Majka mnogih župa, čuvarica predaje i vječni dom pod zaštitom svetog Ante"</p>
+    </section>
+
+    <!-- SEKCIJA 1: POVIJEST I STRADANJA -->
+    <section class="content-section">
+        <h2>Povijest Župe, Katoličkog Puka i Pripadajućih Sela</h2>
+        <p class="intro-text">Župa Potočani, uzdignuta na valovitim posavskim brežuljcima podvučjačkog kraja, stoji kao povijesna matica i duhovno izvorište kršćanstva iz kojeg je ponikao vjerski život dobrog dijela ove ravnice.</p>
+        
+        <p>Župa Potočani ima neprocjenjiv povijesni značaj za cijelu regiju regiju. Službeno je osnovana davne 1852. godine odvajanjem od povijesne kapelanije i župe u Dubočcu, te predstavlja istinsku "majku župu" iz koje su se kasnije, uslijed rasta broja vjernika i administrativnih potreba, odvajale i rađale druge samostalne župe, uključujući i sam Odžak 1900. godine. Kroz stoljeća turske vladavine i kasnijih povijesnih previranja, Potočani su bili zaklon i duhovna utvrda katoličkog puka koji je na ovim prostorima ljubomorno čuvao svoj kršćanski identitet, jezik i odanost Katoličkoj Crkvi.</p>
+        
+        <h3>Pripadajuća sela – vijenac vjere i zajedništva</h3>
+        <p>Živa i neuništiva snaga ove drevne župe oduvijek je kucala u njezinim predivnim, ponosnim selima i zaseocima. Vijenac potočanske župe čine mjesta: sami <strong>Potočani, Jošava, Srnava, Vrbovac</strong>, kao i povijesni dijelovi koji su gravitirali ovom duhovnom središtu poput <strong>Dugih Njiva, Jezera</strong> i okolnih brežuljkastih zaselaka. Ova su sela kroz povijest davala vrijedne težake, vrsne domaćine i brojna duhovna zvanja. Svako od ovih sela nosi svoju posebnu povijesnu priču, svoje kapelice i zavjetna mjesta, ali sva zajedno čine jedno neraskidivo duhovno tijelo sakupljeno oko zajedničkog potočanskog oltara.</p>
+
+        <h3>Tragedije ratova i poslijeratna kalvarija</h3>
+        <p>Potočanski kraj i njegova sela proživjeli su stravične kalvarije u Drugom svjetskom ratu, a posebno u svibnju 1945. godine. Završetak rata ovdje nije donio mir, nego je označio početak nezapamćenog egzodusa i stradanja podvučjačkih Hrvata. Tisuće muškaraca, očeva, muževa i golobradih sinova iz Potočana, Jošave, Srnave i Vrbovca odvedeni su i likvidirani bez suda na brojnim poslijeratnim stratištima, ostavljajući sela bez muške glave. Sela su desetljećima ostala pusta, zavijena u crno. Teret obnove obiteljskih domova i odgoja djece pao je na posavske majke – udovice, koje su u tišini, oskudici i stalnom strahu od komunističkih vlasti, u dječja srca usađivale jedino bogatstvo koje im nitko nije mogao oduzeti: vjeru u Boga i krunicu pod jastukom.</p>
+        
+        <h3>Domovinski rat i uskrsnuće iz pepela 1992.</h3>    <!-- SEKCIJA 2: PASTORALNO VODSTVO -->
+    <section class="content-section">
+        <h2>Duhovni Pastiri: Franjevačka Tradicija i Biskupijski Kler</h2>
+        <p>Kroz dugu povijest ove podvučjačke matice, kršćanski život i narodni opstanak očuvani su zahvaljujući nesebičnoj žrtvi i ljubavi duhovnih pastira koji su s narodom disali, patili i gradili.</p>
+        
+        <p>Povijesni temelji vjere u Potočanima neraskidivo su vezani uz sinove svetoga Franje – <strong>franjevce Bosne Srebrene</strong>. U teškim stoljećima otomanske vladavine, ujaci su iz okolnih samostana pješice i u tajnosti pohodili ova brda, maskirani u narodne nošnje, kako bi pod starim hrastovima dijelili sakramente i hrabrili ustrašeni narod. Ta franjevačka nit ostala je duboko utkana u dušu potočanskog čovjeka, u njegov način molitve i privrženost krunici. Od službenog osnutka župe 1852. godine, pastoralnu skrb i vođenje župe preuzima <strong>biskupijski (banski) kler Vrhbosanske nadbiskupije</strong>, nastavljajući s istim žarom voditi narod kroz sve reformske i povijesne mijene.</p>
+        
+        <h3>Uspomena na fra Grgu Vilića – sina i pastira Posavine</h3>
+        <p>Posebno mjesto u srcima vjernika i povijesti ovoga kraja zauzima nezaboravni <strong>fra Grga Vilić</strong>, rođeni sin podvučjačkog kraja iz sela Jošava. Bio je istinski franjevac, svećenik, ali i neumorni povjesničar, književnik i čuvar posavske baštine. Svojim perom i dubokom istraživačkom ljubavlju spasio je od zaborava neizrecivu patnju i žrtvu podvučjačkih Hrvata, posebice u svojim kapitalnim djelima o stradanjima iz 1945. godine i povijesti župa ovog kraja. Fra Grga nije bio samo znanstvenik, već čovjek neizmjerna srca, blag i suosjećajan pastir koji je osjećao svaku ranu svoga zavičaja. Njegov prerani odlazak ostavio je veliku prazninu, ali njegovo djelo i živi spomen ostaju svijetliti kao trajni putokaz i ponos Potočana, Jošave i cijele Posavine.</p>
+        
+        <h3>Vlč. Žarko Vujica – pastir obnove i zajedništva</h3>
+        <p>Danas, u vremenima kada se posavski čovjek bori za ostanak i očuvanje kršćanskih korijena na svojoj djedovini, župu Potočani s iznimnom ljubavlju, empatijom i pastoralnim žarom predvodi njezin trenutačni župnik, <strong>vlč. Žarko Vujica</strong>. Poput povijesnih pastira, vlč. Žarko s puno topline, strpljenja i kršćanskog razumijevanja brine za svakog vjernika u Potočanima, Jošavi, Srnavi i Vrbovcu. Njegov rad nadilazi crkvene zidine – on redovito obilazi stare, nemoćne i usamljene u udaljenim zaselcima, okuplja mladež i s velikim poštovanjem njeguje spomen na mučenike ovog kraja. Svojom blagošću i neustrašivim svjedočenjem evanđelja, vlč. Žarko Vujica drži živim potočansku zajednicu, ulijevajući narodu snagu pod sigurnim okriljem svetog Ante.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Sakralni Objekti i Arhitektura</h2>
+        <p class="intro-text">Srušena do temelja rukama mržnje, ali ponovno podignuta snagom kršćanske ljubavi – potočanska crkva stoji na uzvišenju kao neuništivi svjetionik katoličke opstojnosti u Posavini.</p>
+        
+                <h3>Župna crkva Svetog Ante Padovanskog</h3>
+        <p>Središte liturgijskog života, molitve i ponos cijeloga podvučjačkog kraja je župna crkva smještena na prelijepom uzvišenju u Potočanima. Prvotna crkva izgrađena je još u 19. stoljeću, a nova, monumentalna crkva dovršena je pred sami rat. U ljeto 1992. godine ovo je sveto mjesto doživjelo strašnu i bolnu sudbinu – crkva je divljački devastirana, oskvrnuta i teško oštećena, dok je njezin veličanstveni crkveni toranj, odnosno zvonik, podlo miniran i do temelja pretvoren u hrpu ruševina. Prizor srušenog zvonika duboko je ranio dušu svakog Potočanca.</p>
+        
+        <p>No, dolaskom slobode i povratkom naroda na svoja ognjišta, započela je njezina posvemašnja obnova od 1997. godine. Iz te iste hrpe ruševina, težačkim znojem i neizmjernom ljubavlju povratnika, ponovno je podignut ponosni toranj, a crkva je u potpunosti obnovljena. Danas potočanska ljepotica ponovno blista u punom sjaju. Njezin novi, elegantni zvonik ponosno se uzdiže prema nebu iznad posavskih brežuljaka, a njezino prostrano unutrašnje uređenje odiše mirom, svjedočeći o neuništivosti katoličke vjere i pobjedi života nad razaranjem.</p>
+        
+        <h3>Filijalne crkve i seoske kapelice</h3>
+        <p>Uz matičnu crkvu, župi pripadaju i važne filijalne kapelice i crkve u selima Jošava, Srnava i Vrbovac. Ove seoske svetinje, također teško stradale u ratu i obnovljene s ljubavlju i težačkim znojem povratnika, služe kao lokalna mjesta hodočašća i tihe molitve. U njima kuca srce svakog pojedinog sela, posebno za vrijeme proslava seoskih patrona, svibanjskih pobožnosti i tradicionalnih blagoslova.</p>
+    </section>
+
+    <div class="scripture-quote">
+        "Ako tražiš čudesa, moli se svetom Anti! Kroz tugu progonstva i pepeo ruševina, tvoja nas je ruka vodila natrag na naša brda i u naša plodna polja."
+    </div>
+
+    <hr class="section-divider">    <!-- SEKCIJA 3: LITURGIJSKO SRCE I SVETKOVINE -->
+    <section class="content-section">
+        <h2>Liturgijsko Srce: Svetkovine, Procesije i Duhovna Događanja</h2>
+        <p>Vjerski život u župi Potočani prožet je dubokim, tradicionalnim pučkim pobožnostima koje stoljećima spajaju posavske obitelji u molitvi, zavjetu i pjesmi.</p>
+        
+        <h3>Velika svetkovina: Sveti Ante Padovanski - Patron župe (13. lipnja)</h3>
+        <p>Najveći, najsvečaniji i najemotivniji dan u godini za Potočane je blagdan <strong>Svetog Ante Padovanskog (Antunovo)</strong>. Za ovaj se dan župljani i hodočasnici pripremaju kroz pobožnost "Trinaest utoraka svetom Anti", kada crkva odjekuje molitvama za zdravlje obitelji i djece. Na sam dan blagdana, Potočani postaju duhovno središte cijele Posavine. Tisuće hodočasnika, od kojih mnogi dolaze bosi iz okolnih župa, slijevaju se na potočansko brdo. Veličanstvena procesija s kipom svetog Ante, praćena jekom starih posavskih pjesama i molitvama vjernika odjevenih u predivne narodne nošnje, prizor je koji svakome gane srce. To je dan susreta, suza radosnica i duboke zahvale svecu svega svijeta.</p>
+        
+        <h3>Tijelovo i blagoslov obitelji</h3>
+        <p>Svetkovina <strong>Tijelova (Presvetog Tijela i Krvi Kristove)</strong> u Potočanima slavi se s posebnim dostojanstvom. Rijeka vjernika u procesiji prolazi oko župne crkve i kroz mjesto, dok djeca u bijelim haljinama posipaju latice ruža ispred Presvetog Oltarskog Sakramenta. Vjernici s pobožnošću prate baldahin pod kojim svećenik moli za blagoslov domova, djece i rada u svim pripadajućim selima župe. To je snažno svjedočanstvo žive vjere koja se prenosi s koljena na koljeno.</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- SEKCIJA 4: BLAGOSLOV POLJA I GROBLJA -->
+    <section class="content-section">
+        <h2>Zemlja Natopljena Vjerom: Blagoslov Polja, Groblja i Pijetet</h2>
+        <p class="intro-text">Grobovi predaka na posavskim brežuljcima te u poljima Jošave, Srnave i Vrbovca tihi su stražari naše povijesti i neuništiv dokaz kršćanskih korijena.</p>
+        
+        <h3>Tradicionalni blagoslov polja po naseljima</h3>
+        <p>U proljetnim danima, počevši od tjedana nakon Uskrsa, brežuljcima Potočana i okolnih sela odjekuju molitve za <strong>blagoslov polja</strong>. Ove mise na otvorenome imaju dugu, dirljivu tradiciju i točno utvrđene nadnevke koji se pobožno poštuju. U samim <strong>Potočanima</strong>, blagoslov polja se tradicionalno moli na <strong>Markovdan (blagdan svetog Marka evanđelista, 25. travnja)</strong>, kada se zaziva Božja milost za rodnu godinu i zaštitu usjeva. U naselju <strong>Jošava</strong>, ovaj se dirljivi susret održava na blagdan <strong>Svetoga Ive / Ivana Krstitelja (21. lipnja)</strong>, kada se vjernici okupljaju u zajedničkoj molitvi, osjećajući duboku duhovnu povezanost s mukom svojih predaka koji su krčili ova brda. Blagoslovi polja mole se i u ostalim naseljima i zaselcima župe, okupljajući raseljene obitelji koje se u te dane vraćaju na svoju djedovinu.</p>
+        
+        <h3>Potočanska groblja – Lipa i Smrekovac</h3>
+        <p>Katolička groblja na području župe Potočani istinski su povijesni arhivi na otvorenome. Središnje župno groblje u Potočanima nosi prelijepo, staro ime <strong>Lipa</strong>. Ono svjedoči o stoljetnim rodovima, obiteljima i patnjama puka koji ovdje počiva pod sjenom starih stabala. Za naselja <strong>Duge Njive i Vrbovac</strong>, povijesno i duboko štovano mjesto pijeteta je groblje <strong>Smrekovac</strong>. Ova počivališta odišu posebnim mirom i pažnjom kojom se održavaju. Tradicionalne mise za Svisvete i Dušni dan okupljaju tisuće vjernika, uključujući i brojne raseljene Potočance iz cijeloga svijeta. Tisuće upaljenih svijeća u jesenskoj noći pretvaraju Lipu i Smrekovac u blistave gradove svjetlosti, spajajući suze živih s nadom u vječni život na nebu.</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- SEKCIJA 5: ODIĆA BRDO I PUT KRIŽA -->
+    <section class="content-section">
+        <h2>Odića Brdo: Kalvarija i Put Križa podvučjačkog kraja</h2>
+        <p class="intro-text">Između grobova predaka i nebeskih visina, Odića brdo stoji kao živi spomenik posavske patnje, ustrajnosti i vjere u uskrsnuće.</p>
+        
+        <p>Posebno duhovno žarište i mjesto dubokog obiteljskog i narodnog pijeteta u župi Potočani je povijesno <strong>Odića brdo</strong>, na čijem se vrhu ponosno uzdiže veličanstveni <strong>Zavjetni križ</strong>. Ovo brdo predstavlja potočansku Kalvariju. Svake godine, posebno u korizmeno vrijeme, u danima sjećanja na žrtve ratova te uoči velikih blagdana, rijeke vjernika kreću na dostojanstveni, emotivni i tihi <strong>Put križa</strong>.</p>
+        
+        <p>Pobožnost i hod postajama muke Kristove započinju na prvoj postaji kod kapelice na groblju <strong>Smrekovac</strong>. Od tog svetog mjesta, vjernici s krunicom u ruci, pjevajući staru posavsku pjesmu "Stala plačuć' tužna mati", pješice uzlaznom stazom prate Isusov križni put. Svaka postaja na tom usponu podsjeća na muku Spasitelja, ali i na stravični križni put koji su proživjele obitelji Potočana, Jošave, Srnave i Vrbovca kroz povijest. Uspon završava na samom vrhu Odića brda, podno velikoga križa, gdje se u tišini i suzama moli odrješenje za sve poginule, nestale i ubijene sinove Posavine, pretvarajući povijesnu bol u neuništivu nadu i molitvu za mir.</p>
+    </section>
+
+    <hr class="section-divider">    <!-- SEKCIJA 6: POVIJESNE OSOBE I HODOČAŠĆA -->
+    <section class="content-section">
+        <h2>Povijesne Osobe Crkve, Vjere i Naroda</h2>
+        <p>Kao jedna od najstarijih župa ovog dijela Posavine, Potočani su kroz povijest dali i ugostili brojne istaknute crkvene pastire, prosvjetitelje i neustrašive laike.</p>
+        
+        <h3>Čuvari naroda i pismenosti</h3>
+        <p>Povijest Potočana bilježi imena požrtvovnih svećenika koji su u 19. i 20. stoljeću, u vremenima oskudice i političkih pritisaka, opismenjavali narod, gradili prve školske klupe i štitili sirotinju. Njihova žrtva utkana je u same temelje identiteta Hrvata katolika Posavine. Posebno mjesto u kolektivnom sjećanju zauzimaju potočanski župnici koji su nakon stravičnih stradanja u svibnju 1945. godine ostali uz narod, tješeći preživjele i ulijevajući im nadu u opstanak.</p>
+        
+        <h3>Hrabre posavske majke – tkalke vjere</h3>
+        <p>Uz crkvene velikane, istinski heroji Potočana, Jošave, Srnave i Vrbovca su njezine neustrašive majke i bake. Ostavši u velikom broju udovice nakon Drugog svjetskog rata, u potpunom siromaštvu i pod stalnim nadzorom vlasti, same su podizale i odgajale nove naraštaje. Te plemenite žene, s vječnom molitvom na usnama, prenosile su katoličku vjeru i ljubav prema zavičaju kao najveću svetinju i jedino istinsko obiteljsko blago.</p>
+        
+        <h3>Hodočašća nade i zavjeta</h3>
+        <p>Potočanci su oduvijek bili narod hodočasnik. S krunicom u ruci i čvrstim zavjetom u srcu, vjernici ove župe svake godine hodočaste u velika marijanska i svetačka svetišta. Posebno mjesto zauzimaju tradicionalna hodočašća Gospi u <strong>Komušinu (Kondžilo)</strong>, hodočasnički hodovi prema Međugorju, Svetištu sv. Ive u Podmilačju te nacionalnom svetištu u Mariji Bistrici u Republici Hrvatskoj. Hodajući u molitvi, potočanski hodočasnici nose zahvale i prošnje svojih sela pred prijestolje Nebeske Majke.</p>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- SEKCIJA 7: INSTITUCIJE -->
+    <section class="content-section">
+        <h2>Institucije Kulture, Obrazovanja i Sporta</h2>
+        <p>Katolička crkva u Potočanima povijesno je podupirala opismenjavanje, kulturni razvoj i sportsko zajedništvo, što je ostavilo dubok trag na društveni život župe.</p>
+        
+        <h3>Očuvanje tradicije i kulturni procvat</h3>
+        <p>U očuvanju bogate kulturne baštine, tradicijskih posavskih pjesama, narodnih nošnji i običaja Potočana i okolnih sela, važnu ulogu imaju lokalna kulturno-umjetnička društva i podružnica <strong>HKD "Napredak"</strong>. Kroz organizaciju susreta, božićnih i uskrsnih koncerata te izložbi u suradnji sa župom, čuva se povijesno sjećanje i identitet posavskog čovjeka. Potočanska crkva redovito ugošćuje pjevačke skupine koje svojim napjevima slave Boga i tradiciju djedova.</p>
+        
+        <h3>Obrazovanje, odgoj mladih i sportski život</h3>
+        <p>Kroz osnovno školstvo na području općine, djeca i mladi primaju kvalitetan odgoj u kojem katolički vjeronauk ima ključnu ulogu, odgajajući nove naraštaje u duhu mira, kršćanskog morala i ljubavi prema bližnjemu. Uz obrazovanje, u Potočanima i pripadajućim selima (posebice u Vrbovcu i Jošavi) dugu tradiciju ima i sportski život kroz lokalne nogometne i sportske klubove te turnire. Crkva i lokalna zajednica redovito podupiru sportske aktivnosti mladih, prepoznajući u njima izvrstan način za promicanje zdravog života, timskog duha, fair-playa i međusobnog zajedništva na ovim posavskim prostorima.</p>
+    </section>
+
+    <!-- PODNOŽJE STRANICE (FOOTER) -->
+    <footer>
+        <div class="footer-logo">Župa Svetog Ante Padovanskog</div>
+        <p>Katolička povijesna i kulturna baština Potočana i Županije Posavske</p>
+        <p style="margin-top: 25px; font-size: 0.85rem; color: var(--gold); letter-spacing: 1px;">"Sveti Ante, čuvaru naših obitelji i naših sela, moli za nas i čuvaj vjeru naših pradjedova."</p>
+        <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026. Sva prava pridržana.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
