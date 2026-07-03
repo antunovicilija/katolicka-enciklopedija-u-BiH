@@ -3,186 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odžak - Katolička Župa i Dekanat | Vatikanski Arhiv</title>
-    <!-- Google Fonts za elegantnu vatikansku tipografiju -->
+    <title>Katolička Baština Odžaka</title>
+    <!-- Google Fonts za vatikansku i modernu estetiku -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome za kršćanske i opće ikone -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Leaflet CSS za interaktivnu mapu -->
-    <link rel="stylesheet" href="https://unpkg.com" />
-    <link rel="stylesheet" href="style.css">
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Osnovni stilovi i paleta boja (Vatikan/Katolička tema) */
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --crimson: #7A1C1C;
+            --dark: #1A1A1A;
+            --light: #F9F9F6;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Navigacija */
+        header {
+            background-color: var(--white);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            color: var(--crimson);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-item a:hover {
+            color: var(--gold);
+        }
+
+        .nav-item a.active-link {
+            color: var(--crimson);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 5px;
+        }
+
+        /* Hero sekcija */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(122, 28, 28, 0.6)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            font-weight: 300;
+        }
+
+        /* Glavni sadržaj */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--crimson);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '✝';
+            display: block;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        /* Mreža kartica (Grid) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-badge {
+            background-color: var(--crimson);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Istaknuti citat / Duhovni dio */
+        .spiritual-banner {
+            background-color: var(--crimson);
+            color: var(--white);
+            padding: 5px;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            margin: 40px 0;
+        }
+        
+        .banner-content {
+            padding: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .banner-content p {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+        }
+
+        /* Podnožje (Footer) */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 4px solid var(--gold);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Responzivnost za mobitele */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Fiksna Navigacija sa samo dva polja -->
-    <nav class="vatikan-nav">
-        <div class="nav-logo">
-            <i class="fa-solid fa-cross cross-icon"></i>
-            <span>VATIKANSKI ARHIV</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/index.html"><i class="fa-solid fa-house"></i> Početna</a></li>
-            <li><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/kontakt.html"><i class="fa-solid fa-address-book"></i> Kontakt</a></li>
-        </ul>
-    </nav>
-
-    <!-- 1. HERO SEKCIJA -->
-    <header id="pocetna" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="vatikan-emblem">
-                <i class="fa-solid fa-key"></i>
-                <i class="fa-solid fa-key cross-key"></i>
-            </div>
-            <p class="meta-info">Dekanat: Doborski &bull; Župa: Glavosjeka sv. Ivana Krstitelja</p>
-            <h1>Odžak</h1>
-            <p class="hero-motto">"Preko križa do svjetlosti — Per crucem ad lucem"</p>
-            <div class="scroll-arrow">
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
+    <!-- Navigacijski izbornik -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">ODŽAK <span>✝</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="active-link">Početna</a></li>
+                <!-- Poveznica prema vašoj enciklopediji -->
+                <li class="nav-item"><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/index.html" target="_blank">Popis svih mjesta</a></li>
+                <!-- Poveznica prema kontaktu -->
+                <li class="nav-item"><a href="https://antunovicilija.github.io/katolicka-enciklopedija-u-BiH/kontakt.html" target="_blank">Kontakt</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- SEKCIJA ZA PRETRAGU -->
-    <div class="search-bar-container">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="pretraga-input" placeholder="Pretraži crkve, groblja, događanja, HVO ili osobe u Odžaku..." onkeyup="pretraziStranicu()">
-        </div>
-    </div>
-
-    <!-- 2. VREMENSKA PROGNOZA -->
-    <section class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-cloud-sun"></i>
-                <h2>Vremenska Prognoza za Odžak</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div id="weather-container" class="grid-container">
-                <!-- JavaScript automatski ubacuje trodnevnu prognozu ovdje -->
-            </div>
-        </div>
+    <!-- Hero vizualni dio -->
+    <section class="hero">
+        <h1>Župa Odžak</h1>
+        <p>Povijesno, duhovno i kulturno središte katoličkog života u Posavini</p>
     </section>
 
-    <!-- 3. DUBOKA ISTORIJA -->
-    <section class="info-section history-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-book-bible"></i>
-                <h2>Duboka Istorija i Katolička Vjerna Tradicija</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="history-content">
-                <p class="lead-text">Katolička vjera u Odžaku i doborskom kraju stoljećima je bila temelj opstanka naroda kroz burna povijesna previranja.</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>1593. Godina — Prvi spomeni i Dobor-grad</h3>
-                        <p>Područje današnjeg Odžaka usko je vezano uz povijest drevne utvrde Dobor, koja je bila poprište brojnih bitaka za obranu kršćanstva u Posavini.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>1784. Godina — Uspostava samostalne kapelanije</h3>
-                        <p>Odžak se odvaja od stare župe Potočani i formira vlastitu duhovnu kapelaniju, što označava novi procvat katoličkog identiteta.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>1824. Godina — Podizanje prve župne crkve</h3>
-                        <p>Izgrađena je prva drvena župna crkva koja je okupila vjernike iz cijelog odžačkog kraja, unatoč teškim vremenima otomanske vlasti.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Glavni sadržaj -->
+    <main class="container">
+        
+        <h2 class="section-title">Duhovna i svjetovna baština</h2>
 
-    <!-- 4. CRKVE I SAKRALNI OBJEKTI -->
-    <section class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-church"></i>
-                <h2>Crkve i Sakralni Objekti</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="grid-container">
-                <div class="sakralni-card pretrazivo-objekt">
-                    <div class="card-img-placeholder"><i class="fa-solid fa-church"></i></div>
-                    <div class="card-body">
-                        <span class="card-tag">Župna Crkva</span>
-                        <h3>Crkva Glavosjeka sv. Ivana Krstitelja</h3>
-                        <p>Centralno sakralno zdanje u Odžaku, vjerno obnovljeno nakon ratnih razaranja. Središte duhovnog života i ponosa svih odžačkih katolika.</p>
-                    </div>
-                </div>
-                <div class="sakralni-card pretrazivo-objekt">
-                    <div class="card-img-placeholder"><i class="fa-solid fa-cross"></i></div>
-                    <div class="card-body">
-                        <span class="card-tag">Kapela</span>
-                        <h3>Zavjetna Kapelica</h3>
-                        <p>Mala sakralna građevina podignuta u znak dubokog zavjeta i molitvene zaštite mještana i putnika od svih ovozemaljskih nedaća.</p>
-                    </div>
+        <div class="grid">
+            
+            <!-- Sakralni objekti -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-badge">Sakralni objekti</span>
+                    <h3>Župna Crkva u Odžaku</h3>
+                    <p>Središte liturgijskog života župe. Crkva predstavlja nezaobilazni vjerski i arhitektonski simbol Odžaka, obnavljana s ljubavlju i vjerom kroz povijest.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 5. INTERAKTIVNA MAPA -->
-    <section class="info-section dark-bg">
-        <div class="container">
-            <div class="section-title text-white">
-                <i class="fa-solid fa-map-marked-alt"></i>
-                <h2>Mapa Sakralnih Objekata i Groblja</h2>
-                <div class="gold-divider"></div>
+            <!-- Događanja -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-badge">Događanja & Svetkovine</span>
+                    <h3>Patron Župe i Vjerske Svečanosti</h3>
+                    <p>Proslave blagdana, procesije i tradicionalna okupljanja vjernika posavskog kraja koja čuvaju katolički identitet i zajedništvo.</p>
+                </div>
             </div>
-            <div id="map"></div>
-        </div>
-    </section>
 
-    <!-- 6. DRUŠTVENA I VJERSKA DOGAĐANJA -->
-    <section class="info-section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <i class="fa-solid fa-calendar-days"></i>
-                <h2>Društvena i Vjerska Događanja</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="grid-container">
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge"><i class="fa-solid fa-wheat-awn"></i> Kultura</div>
-                    <h3>Posavsko Kolo & Vašar za Veliku Gospu</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Sredina kolovoza / Blagdan Velike Gospe</p>
-                    <p>Tradicionalna manifestacija koja svake godine okuplja Hrvate odžačkog kraja i brojne dijaspore. Uz smotru folklora, izvorne pjesme i narodne nošnje, tradicionalni seoski vašar predstavlja središnji društveni događaj ljeta.</p>
-                </div>
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge crkva-badge"><i class="fa-solid fa-candle"></i> Vjerski spomen</div>
-                    <h3>Svetkovina Svih Svetih & Dušni Dan</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> 1. i 2. studenog</p>
-                    <p>Vrijeme duboke molitve i sjećanja na pokojne. Uz prateći vašar, na grobljima se služe svečane svete mise te se mole opijela za duše vjernih mrtvih uz masovno paljenje svijeća.</p>
-                </div>
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge duhovni-badge"><i class="fa-solid fa-music"></i> Duhovnost</div>
-                    <h3>Koncerti Duhovne Glazbe</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Tijekom godine</p>
-                    <p>U predivnom ambijentu župne crkve u Odžaku redovito se organiziraju koncerti duhovne glazbe, zborova i gostujućih kršćanskih izvođača, slaveći Gospodina kroz pjesmu i zajedništvo.</p>
-                </div>
-                <div class="dogadjaj-card pretrazivo-objekt">
-                    <div class="dogadjaj-badge moto-badge"><i class="fa-solid fa-motorcycle"></i> Zabava</div>
-                    <h3>Tradicionalna Motorijada</h3>
-                    <p class="dogadjaj-vrijeme"><i class="fa-solid fa-clock"></i> Ljetni period</p>
-                    <p>Godišnje okupljanje ljubitelja motocikala iz cijele regije i inozemstva. Događaj uključuje tradicionalni defile kroz ulice Odžaka, moto-igre i rock koncerte na otvorenom.</p>
+            <!-- Povijesne osobe -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-badge">Povijesne Osobe</span>
+                    <h3>Velikani Crkve i Vjere</h3>
+                    <p>Uspomena na svećenike, redovnike i istaknute laike koji su svojim pastoralnim i prosvjetnim radom ostavili neizbrisiv trag u povijesti Odžaka.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 7. DOMOVINSKA ZAHVALNOST I HVO -->
-    <section class="info-section crimson-bg">
-        <div class="container">
-            <div class="section-title text-white">
-                <i class="fa-solid fa-ribbon"></i>
-                <h2>Domovinska Zahvalnost i Spomen</h2>
-                <div class="gold-divider"></div>
-            </div>
-            <div class="spomen-container pretrazivo-objekt">
-                <div class="spomen-Ikona">
-                    <i class="fa-solid fa-monument"></i>
+            <!-- Groblja -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-badge">Groblja i Pijetet</span>
+                    <h3>Katolička Groblja Župe</h3>
+                    <p>Mjesta vječnog počivališta naših predaka. Svjedočanstvo višestoljetne prisutnosti i postojanosti katoličkog puka na ovim prostorima.</p>
                 </div>
-                <div class="spomen-tekst">
+            </div>
+
+            <!-- Kultura i obrazovanje -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-badge">Kultura i Obrazovanje</span>
+                    <h3>Važne Institucije</h3>
