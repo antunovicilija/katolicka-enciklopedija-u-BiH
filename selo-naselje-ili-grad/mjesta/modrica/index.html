@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katolička Baština Modriče i Posavine</title>
+    <!-- Google Fonts: Vatikanska i moderna estetika -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght=400;600;700&family=Montserrat:ital,wght=0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Vatikanska paleta boja i tipografija */
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --crimson: #7A1C1C;
+            --dark: #1A1A1A;
+            --light-bg: #FDFDFB; /* Boja bjelokosti / papinski stil */
+            --text-color: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.9;
+            font-size: 1.15rem;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            color: var(--crimson);
+        }
+
+        /* Fiksni navigacijski izbornik */
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero sekcija */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(122, 28, 28, 0.55)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            font-style: italic;
+        }
+
+        /* Slobodni stil sadržaja - bez kontejnera u obliku kutija */
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: justify;
+        }
+
+        .content-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: 1px solid rgba(122, 28, 28, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--crimson);
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+        }
+
+        .content-section p {
+            margin-bottom: 25px;
+            color: #333333;
+        }
+
+        /* Istaknuti uvodni tekstovi s naglaskom na emociju */
+        .intro-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--crimson);
+            line-height: 2;
+            margin-bottom: 35px;
+        }
+
+        /* Elegantne zlatne horizontalne linije s križem */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 60px auto;
+            position: relative;
+            text-align: center;
+            max-width: 85%;
+        }
+
+        .section-divider::after {
+            content: '✝';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--light-bg);
+            padding: 0 20px;
+            color: var(--gold);
+            font-size: 1.4rem;
+        }
+
+        /* Duhovni citati */
+        .scripture-quote {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--crimson);
+            text-align: center;
+            margin: 50px auto;
+            padding: 25px;
+            max-width: 800px;
+            border-top: 1px double var(--gold);
+            border-bottom: 1px double var(--gold);
+            line-height: 1.8;
+        }
+
+        /* Prilagodba za mobitele */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .content-section h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigacija -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">MODRIČA <span>✝</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#">Početna</a></li>
+                <li class="nav-item"><a href="https://github.io" target="_blank">Popis svih mjesta</a></li>
+                <li class="nav-item"><a href="https://github.io" target="_blank">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Glavni vizualni dio -->
+    <section class="hero">
+        <h1>Župa Modriča</h1>
+        <p>"Pod okriljem Male Gospe, kroz povijesne vihore do neuništive nade zavičaja"</p>
+    </section>
+
+        <!-- SEKCIJA 1: POVIJEST I STRADANJA -->
+    <section class="content-section">
+        <h2>Povijest Župe, Katoličkog Puka i Pripadajućih Sela</h2>
+        <p class="intro-text">Župa Modriča, smještena uz mirnu rijeku Bosnu, podno povijesnih doborskih zidina, čuva duboke i krvlju natopljene tragove hrvatskog katoličkog naroda, neraskidivo povezanog sa svojim plodnim selima.</p>
+        
+        <p>Katolički korijeni modričkog kraja sežu duboko u srednji vijek, kada su ovim prostorima upravljali bosanski franjevci. Župa Modriča je u novijoj povijesti službeno obnovljena 1883. godine, nakon dugog razdoblja otomanske vladavine tijekom kojega je domaći puk preživio progone i teška stradanja. Formirana je odvajanjem od povijesno važne župe Tramošnica. Ovdje je katolički identitet oduvijek bio sinonim za opstanak, ljubav prema domu i neraskidivu povezanost s Crkvom.</p>
+        
+        <h3>Pripadajuća sela – stupovi župne zajednice</h3>
+        <p>Snaga i opstojnost župe Modriča oduvijek je ležala u njezinim vjernim selima i prigradskim naseljima. Kroz povijest, mjesta poput ponosnog <strong>Garevca</strong>, te <strong>Kladara, Donjih Kladara, kućera</strong> i ostalih okolnih posavskih zaselaka, činila su živu krvožilnu mrežu ove duhovne zajednice. Iako su neka od ovih mjesta, poput Garevca, s vremenom zbog rasta broja vjernika i administrativnih potreba Crkve utemeljena kao samostalne župe, ona u povijesnom, rodbinskom i duhovnom smislu ostaju zauvijek vezana uz modričku maticu. Ova su sela bila i ostala čuvari posavske tradicije, izvor duhovnih zvanja i zavičajni ponos svakog modričkog katolika.</p>
+
+        <h3>Tragedije Drugog svjetskog rata i žrtva naroda</h3>
+        <p>Poput susjednog Odžaka, i Modriča je zajedno sa svojim selima (posebice Garevcem i Kladarima) tijekom Drugog svjetskog rata i neposrednog poraća u svibnju 1945. godine doživjela strahovitu kalvariju i masovna stradanja na stratištima poput Burića štale. Katolički puk ovog kraja podnio je golemu žrtvu. Mnogi sinovi, očevi i obitelji likvidirani su bez suđenja u poratnim čistkama novog komunističkog režima. Godinama nakon rata, tuga i tišina obavijale su modrička sela, a teret odgoja novih naraštaja u čvrstoj kršćanskoj vjeri spao je na ramena ponosnih, pobožnih i samohranih majki koje su s krunicom u ruci nadvladale svaku nevolju i oskudicu.</p>
+        
+        <h3>Progonstvo i ponovno rađanje iz pepela 1992. godine</h3>
+        <p>Najteži udarac u modernoj povijesti župa i njezina sela pretrpjeli su u ljeto 1992. godine tijekom rata u Bosni i Hercegovini. Cjelokupno hrvatsko katoličko stanovništvo Modriče, Kladara, Garevca i svih okolnih mjesta bilo je brutalno protjerano. Domovi su opljačkani i zapaljeni, a veličanstveni duhovni dom – župna crkva – sravnjena je sa zemljom. Godine izbjeglištva bile su ispunjene suzama i čežnjom za povratkom, no vjernost Majci Božjoj održala je nadu živom. Nakon rata, povratkom prvog župnika i hrabrih obitelji, započela je mukotrpna, ali s ljubavlju vođena obnova. Svaki ugrađeni kamen u novu crkvu bio je pobjeda ljubavi nad mržnjom i dokaz da se katolička prisutnost u Modriči ne može ugasiti.</p>
+    </section>
+    </section>        <!-- SEKCIJA 2: PASTORALNO VODSTVO -->
+    <section class="content-section">
+        <h2>Duhovni Pastiri: Svećenički Red i Vodstvo</h2>
+        <p>Kroz sve povijesne vihore i obnove, živa Crkva u Modriči opstala je zahvaljujući neizmjernom duhovnom vodstvu i očinskoj skrbi pastira koji su dijelili svaku suzu sa svojim narodom.</p>
+        
+        <p>Župom Rođenja Blažene Djevice Marije u Modriči upravlja <strong>biskupijski (banski) kler Vrhbosanske nadbiskupije</strong>. Ovi požrtvovni svećenici, u čvrstoj povijesnoj i duhovnoj sprezi s franjevačkim redom koji je stoljećima ranije postavio kršćanske temelje u Posavini, ugradili su svoje živote u obranu i duhovni procvat ovog kraja. Svećenik je ovdje oduvijek bio stup zajednice, tješitelj u progonstvu i glas ohrabrenja koji je ulijevao nadu kada je sve ljudsko zakazalo.</p>
+        
+        <h3>Vlč. Anto Perić – pastir postojanosti i nade</h3>
+        <p>Danas, u ovim izazovnim vremenima kada se posavski čovjek bori za očuvanje svojih ognjišta i povratak života na djedovinu, župnu zajednicu s neizmjernom ljubavlju, empatijom i blagošću predvodi njezin sadašnji župnik, <strong>vlč. Anto Perić</strong>. Poput svojih časnih prethodnika, vlč. Anto nije samo čuvar oltara i liturgije, već istinski otac i prijatelj svakog župljanina u Modriči i njezinim selima. Njegova vrata i srce uvijek su otvoreni za svakoga – od staraca koji usamljeno žive u obnovljenim kućama Kladara i Garevca, do obitelji koje dolaze potražiti duhovnu utjehu. Svojim neumornim pastoralnim radom, toplom rječju na propovijedaonici i brigom za svakog vjernika, vlč. Anto Perić drži živim plamen katoličke vjere pod okriljem Male Gospe, svjedočeći da Modriča živi i da će njezino kršćansko ime trajati.</p>
+    </section>
+    </section>    <!-- SEKCIJA 1: POVIJEST I STRADANJA -->
+    <section class="content-section">
+        <h2>Povijest Župe, Katoličkog Puka i Pripadajućih Sela</h2>
+        <p class="intro-text">Župa Modriča, smještena uz mirnu rijeku Bosnu, podno povijesnih doborskih zidina, čuva duboke i krvlju natopljene tragove hrvatskog katoličkog naroda, neraskidivo povezanog sa svojim plodnim selima.</p>
+        
+        <p>Katolički korijeni modričkog kraja sežu duboko u srednji vijek, kada su ovim prostorima upravljali bosanski franjevci. Župa Modriča je u novijoj povijesti službeno obnovljena 1883. godine, nakon dugog razdoblja otomanske vladavine tijekom kojega je domaći puk preživio progone i teška stradanja. Formirana je odvajanjem od povijesno važne župe Tramošnica. Ovdje je katolički identitet oduvijek bio sinonim za opstanak, ljubav prema domu i neraskidivu povezanost s Crkvom.</p>
+        
+        <h3>Pripadajuća sela – stupovi župne zajednice</h3>
+        <p>Snaga i opstojnost župe Modriča oduvijek je ležala u njezinim vjernim selima i prigradskim naseljima. Kroz povijest, mjesta poput ponosnog <strong>Garevca</strong>, te <strong>Kladara, Donjih Kladara, kućera</strong> i ostalih okolnih posavskih zaselaka, činila su živu krvožilnu mrežu ove duhovne zajednice. Iako su neka od ovih mjesta, poput Garevca, s vremenom zbog rasta broja vjernika i administrativnih potreba Crkve utemeljena kao samostalne župe, ona u povijesnom, rodbinskom i duhovnom smislu ostaju zauvijek vezana uz modričku maticu. Ova su sela bila i ostala čuvari posavske tradicije, izvor duhovnih zvanja i zavičajni ponos svakog modričkog katolika.</p>
+
+        <h3>Tragedije Drugog svjetskog rata i žrtva naroda</h3>
+        <p>Poput susjednog Odžaka, i Modriča je zajedno sa svojim selima (posebice Garevcem i Kladarima) tijekom Drugog svjetskog rata i neposrednog poraća u svibnju 1945. godine doživjela strahovitu kalvariju i masovna stradanja na stratištima poput Burića štale. Katolički puk ovog kraja podnio je golemu žrtvu. Mnogi sinovi, očevi i obitelji likvidirani su bez suđenja u poratnim čistkama novog komunističkog režima. Godinama nakon rata, tuga i tišina obavijale su modrička sela, a teret odgoja novih naraštaja u čvrstoj kršćanskoj vjeri spao je na ramena ponosnih, pobožnih i samohranih majki koje su s krunicom u ruci nadvladale svaku nevolju i oskudicu.</p>
+        
+        <h3>Progonstvo i ponovno rađanje iz pepela 1992. godine</h3>
+        <p>Najteži udarac u modernoj povijesti župa i njezina sela pretrpjeli su u ljeto 1992. godine tijekom rata u Bosni i Hercegovini. Cjelokupno hrvatsko katoličko stanovništvo Modriče, Kladara, Garevca i svih okolnih mjesta bilo je brutalno protjerano. Domovi su opljačkani i zapaljeni, a veličanstveni duhovni dom – župna crkva – sravnjena je sa zemljom. Godine izbjeglištva bile su ispunjene suzama i čežnjom za povratkom, no vjernost Majci Božjoj održala je nadu živom. Nakon rata, povratkom prvog župnika i hrabrih obitelji, započela je mukotrpna, ali s ljubavlju vođena obnova. Svaki ugrađeni kamen u novu crkvu bio je pobjeda ljubavi nad mržnjom i dokaz da se katolička prisutnost u Modriči ne može ugasiti.</p>
+    </section>
+
+
+    <section class="content-section">
+        <h2>Sakralni Objekti i Arhitektura</h2>
+        <p class="intro-text">Uništena rukama mržnje, ali uskrsnula snagom ljubavi i vjere – sakralna arhitektura Modriče svjedoči o pobjedi života nad razaranjem.</p>
+        
+        <h3>Župna crkva Rođenja Blažene Djevice Marije</h3>
+        <p>Središte i kucavica cjelokupnog katoličkog života je monumentalna župna crkva u Modriči. Stara crkva, građena s puno truda krajem 19. i tijekom 20. stoljeća, bila je ponos grada sve do ljeta 1992. godine kada je potpuno razorena i minirana do temelja. No, ljubav prema nebeskoj Majci i zavičaju pokrenula je čudo obnove. Nova, prelijepa crkva podignuta je na istom mjestu nakon rata. Njezin moderni, elegantni zvonik danas ponosno prkosi vremenu i poziva vjernike na molitvu, stojeći kao trajni spomenik vjere i žrtve modričkih katolika.</p>
+        
+        <h3>Seoske kapelice i filijale</h3>
+        <p>Uz župnu crkvu, na području župe i okolnih naselja nalaze se brojne seoske kapelice. Ove male oaze molitve raspoređene su po posavskim poljima i brežuljcima te predstavljaju mjesna središta okupljanja. U njima se vjernici okupljaju tijekom svibanjskih i listopadskih pobožnosti, blagoslova polja i patrona filijala, povezujući se u jedinstvenu duhovnu obitelj.</p>
+    </section>
+
+    <div class="scripture-quote">
+        "Evo službenice Gospodnje, neka mi bude po tvojoj riječi! Pod okriljem Tvoje materinske ljubavi, o Marijo, podigli smo iz pepela naš dom i našu vjeru."
+    </div>
+
+    <!-- SEKCIJA 3: LITURGIJSKO SRCE I SVETKOVINE -->
+    <section class="content-section">
+        <h2>Liturgijsko Srce: Svetkovine, Procesije i Duhovna Događanja</h2>
+        <p>Vjerski život župe Modriča duboko je utkan u liturgijsku tradiciju koja slavi Boga i iskazuje neizmjerno štovanje i ljubav prema Blaženoj Djevici Mariji.</p>
+        
+        <h3>Velika svetkovina: Mala Gospa - Patron župe (8. rujna)</h3>
+        <p>Vrhunac duhovne radosti i najvažniji dan u godini za svakog modričkog katolika je blagdan <strong>Rođenja Blažene Djevice Marije (Mala Gospa)</strong>. Za ovu veliku svetkovinu župa se priprema kroz dostojanstvenu i pobožnu trodnevnicu koja okuplja mnoštvo vjernika. Na sam dan patrona, modrička crkva i njezino dvorište postaju pretijesni za sve hodočasnike. Posebno dirljiv trenutak je svečana procesija s Gospinim kipom, ukrašenim cvijećem i praćenim tradicionalnim marijanskim pjesmama. Tisuće raseljenih Modričana iz cijeloga svijeta toga dana hodočaste svom rodnom pragu, stapajući se u suzama radosnicama i zajedničkoj molitvi pod otvorenim nebom zavičaja.</p>
+        
+        <h3>Tijelovska procesija i svjedočanstvo vjere</h3>
+        <p>Svetkovina <strong>Tijelova</strong> u Modriči slavi se s posebnim dostojanstvom i javnim svjedočenjem vjere. Nakon svečane svete mise, vjernici u procesiji prolaze crkvenim dvorištem i ulicama, dok djeca u bijelim haljinama posipaju latice ruža ispred Presvetog Oltarskog Sakramenta. Svećenici noseći monstrancu pod baldahinom podjeljuju blagoslov na sve četiri strane svijeta, moleći za mir, blagostanje, očuvanje obitelji i ostanak naroda na ovim prostorima.</p>
+        
+        <h3>Duhovne obnove, mise uočnice i koncerti</h3>
+        <p>Kroz godinu, župa organizira brojne duhovne obnove, biblijske večeri i susrete mladih koji unose živost u pastoralni rad. Posebno toplo emotivno ozračje vlada za vrijeme <strong>Božićnih i Uskrsnih koncerata</strong> duhovne glazbe. Tradicionalne posavske skupine i župni zbor svojim izvedbama bude duboke osjećaje pripadnosti, sjećanja na stara obiteljska ognjišta i radost zajedništva u Kristu.</p>
+    </section>    <!-- SEKCIJA 4: BLAGOSLOV POLJA I GROBLJA -->
+    <section class="content-section">
+        <h2>Zemlja Natopljena Vjerom: Blagoslov Polja, Groblja i Pijetet</h2>
+        <p class="intro-text">Grobovi naših predaka i plodna posavska polja neraskidivi su dio katoličkog bića modričkog kraja, svjedočanstvo opstojnosti i nade u uskrsnuće.</p>
+        
+        <h3>Tradicionalni blagoslov polja</h3>
+        <p>U proljetnim danima, počevši od tjedana nakon Uskrsa, u Modriči i okolnim filijalama započinju mise s <strong>blagoslovom polja</strong>. To su duboko emotivni trenuci u kojima se težački rad i molitva stapaju u jedno. Svećenik moli za rodnu godinu, zaštitu od nevremena, ali iznad svega za blagoslov obitelji i ljudskoga rada. Okupljeni vjernici, s krunicom u ruci, s ponosom i suzom u oku prisjećaju se svojih djedova koji su s vjerom u Boga preoravali ove plodne ravnice uz rijeku Bosnu.</p>
+        
+        <h3>Svetišta mira i vječnosti: Katolička groblja</h3>
+        <p>Katolička groblja na području župe Modriča istinski su povijesni svjedoci stoljetne prisutnosti Hrvata na ovim prostorima. Gradsko katoličko groblje i seoska počivališta mjesta su neizmjernog pijeteta i dostojanstva. Svaki kameni križ i uređeni grob pričaju priču o ljubavi prema obitelji i vjernosti Katoličkoj Crkvi. Za blagdane Svih Svetih i Dušni dan, tisuće upaljenih svijeća pretvaraju ova groblja u blistave gradove svjetlosti, dok šapat molitve i tihi jecaji povezuju živu zajednicu s njihovim pokojnima u nebeskoj slavi.</p>
+        
+        <h3>Opijela i kršćanski ispraćaj</h3>
+        <p>Sprovodni obredi i opijela u modričkoj župi prožeti su dubokom kršćanskom sućuti i solidarnošću. Kada se ugasi život jednog župljanina, cijela se zajednica okuplja kako bi pružila utjehu ožalošćenoj obitelji. Zvuk crkvenih zvona i tradicionalne sprovodne pjesme ne označavaju kraj, već dostojanstven ispraćaj i vjeru u ponovni susret u naručju Nebeskog Oca.</p>
+    </section>
+
+    <!-- SEKCIJA 5: POVIJESNE OSOBE I HODOČAŠĆA -->
+    <section class="content-section">
+        <h2>Povijesne Osobe Crkve, Vjere i Naroda</h2>
+        <p>Modrički je kraj kroz povijest iznjedrio i udomio brojne istaknute crkvene pastire, redovnike, intelektualce i neustrašive laike koji su svojim radom očuvali kršćanski duh i nacionalno ime Hrvata katolika.</p>
+        
+        <h3>Požrtvovni svećenici i čuvari identiteta</h3>
+        <p>Povijest župe bilježi imena brojnih župnika i kapelana koji su u najtežim vremenima otomanskih progona, svjetskih ratova i komunističkih pritisaka ostali čvrsto uz svoj narod. Oni su bili prosvjetitelji, graditelji prvih škola i crkava te branitelji obespravljenih. Njihov pastoralni rad nadilazio je same crkvene zidove i utisnuo neizbrisiv pečat u kulturni i društveni razvoj Modriče.</p>
+        
+        <h3>Neustrašive posavske majke</h3>
+        <p>Uz svećenike mučenike, posebno mjesto u povijesti zauzimaju modričke majke i bake. One su nakon strašnih stradanja u Drugom svjetskom ratu, kada su mnoga sela ostala bez muškaraca, u siromaštvu i gladi podizale nove naraštaje. Njihov jedini štit bila je krunica i nepoljuljana vjera u zagovor Blažene Djevice Marije, koju su vješto i s ljubavlju prenosile svojoj djeci kao najveće životno blago.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Hodočašća Nade i Tradicionalna Okupljanja</h2>
+        <p class="intro-text">Modrički katolici oduvijek su hodočasnički narod koji u hodu i molitvi traži i nalazi nebesku utjehu i snagu za svakodnevne životne borbe.</p>
+        
+        <p>Svake godine vjernici ove župe s velikom pobožnošću organiziraju hodočašća u velika marijanska i svetačka svetišta diljem Bosne i Hercegovine i Hrvatske. Posebno su dirljiva hodočašća Gospi u <strong>Komušinu (Kondžilo)</strong>, gdje se moli za mir i jedinstvo kršćanskih obitelji. Također, vjernici redovito hodočaste u Međugorje, Svetište sv. Ive u Podmilačju te u nacionalno marijansko svetište Mariju Bistricu, noseći u svojim srcima molitve, zahvale i čežnje svog zavičaja.</p>
+    </section>
+
+    <!-- SEKCIJA 6: INSTITUCIJE -->
+    <section class="content-section">
+        <h2>Institucije Kulture, Obrazovanja i Sporta</h2>
+        <p>Katolička crkva u Modriči oduvijek je bila pokretač prosvjete, kulture i sportskog zajedništva, što se snažno odražava na povijesni i institucionalni život Hrvata u ovom kraju.</p>
+        
+        <h3>Očuvanje kulturne baštine i HKD "Napredak"</h3>
+        <p>U očuvanju hrvatskog kulturnog identiteta, tradicije, izvornih pjesama i običaja modričkog kraja, povijesno ključnu ulogu ima podružnica <strong>HKD (Hrvatsko kulturno društvo) "Napredak"</strong>. Kroz organizaciju izložbi, promocije knjiga s kršćanskom tematikom i tradicijske smotre, ovo društvo okuplja mlade i čuva povijesno sjećanje od zaborava. Lokalni kulturni događaji redovito se organiziraju u suradnji sa župnom zajednicom, promičući kršćanske vrijednosti i umjetnost.</p>
+        
+        <h3>Obrazovanje, odgoj i sportska tradicija</h3>
+        <p>Odgoj mladih generacija u duhu moralnih vrijednosti i tolerancije provodi se kroz osnovno i srednjoškolsko obrazovanje, u čemu katolički vjeronauk ima neizostavnu ulogu. Crkva u Modriči oduvijek je podržavala i sportske aktivnosti mladih, prepoznajući u sportu sredstvo za razvoj zajedništva, timskog duha i zdravog života. Kroz lokalne sportske turnire i sportska društva, modrička katolička mladež razvija fair-play i ponosno predstavlja tradiciju i ime svoga rodnog kraja.</p>
+    </section>
+
+    <!-- PODNOŽJE STRANICE (FOOTER) -->
+    <footer>
+        <div class="footer-logo">Župa Rođenja Blažene Djevice Marije</div>
+        <p>Katolička povijesna i kulturna baština općine Modriča i Posavine</p>
+        <p style="margin-top: 25px; font-size: 0.85rem; color: var(--gold); letter-spacing: 1px;">"Pod Tvoju se obranu utječemo, Sveta Bogorodice. Čuvaj našu Modriču i vjeru naših pradedova."</p>
+        <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026. Sva prava pridržana.</p>
+    </footer>
+
+</body>
+</html>
+
+
+    <hr class="section-divider">
+
+
+    <hr class="section-divider">
